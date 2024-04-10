@@ -1,0 +1,9 @@
+J:/workplace/cmake_cpp/build/CMakeFiles/main.dir
+J:/workplace/cmake_cpp/build/CMakeFiles/edit_cache.dir
+J:/workplace/cmake_cpp/build/CMakeFiles/rebuild_cache.dir
+J:/workplace/cmake_cpp/build/module1/CMakeFiles/module1_shared.dir
+J:/workplace/cmake_cpp/build/module1/CMakeFiles/edit_cache.dir
+J:/workplace/cmake_cpp/build/module1/CMakeFiles/rebuild_cache.dir
+J:/workplace/cmake_cpp/build/module2/CMakeFiles/module2_static.dir
+J:/workplace/cmake_cpp/build/module2/CMakeFiles/edit_cache.dir
+J:/workplace/cmake_cpp/build/module2/CMakeFiles/rebuild_cache.dir
