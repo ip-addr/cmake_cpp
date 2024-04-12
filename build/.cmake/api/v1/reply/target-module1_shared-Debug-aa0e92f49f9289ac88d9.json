@@ -2,13 +2,13 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "J:/workplace/cmake_cpp/Debug/module1_shared_runs/libmodule1_shared_rename.dll"
+			"path" : "J:/workplace/cmake_cpp/Debug/libs/libmodule1_shared_rename.dll"
 		},
 		{
-			"path" : "J:/workplace/cmake_cpp/Debug/module1_shared_arch/libmodule1_shared_rename.dll.a"
+			"path" : "J:/workplace/cmake_cpp/Debug/libs/libmodule1_shared_rename.dll.a"
 		},
 		{
-			"path" : "J:/workplace/cmake_cpp/Debug/module1_shared_runs/libmodule1_shared_rename.pdb"
+			"path" : "J:/workplace/cmake_cpp/Debug/libs/libmodule1_shared_rename.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -113,10 +113,6 @@
 			]
 		}
 	],
-	"folder" : 
-	{
-		"name" : "module1_shared_lib"
-	},
 	"id" : "module1_shared::@7b43c4801f818007b112",
 	"link" : 
 	{

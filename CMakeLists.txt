@@ -7,10 +7,10 @@
 # | CMAKE_BINARY_DIR | 构建目录的根路径，用于存放构建生成的可执行文件、库和其他输出 |
 # | CMAKE_CURRENT_SOURCE_DIR | 当前处理的 CMakeLists.txt 所在的源码目录路径 |
 # | CMAKE_CURRENT_BINARY_DIR | 当前处理的 CMakeLists.txt 所在的构建目录路径 |
-message("路径1 CMAKE_SOURCE_DIR",${CMAKE_SOURCE_DIR})
-message("路径3 CMAKE_CURRENT_SOURCE_DIR",${CMAKE_CURRENT_SOURCE_DIR})
-message("路径2 CMAKE_BINARY_DIR",${CMAKE_BINARY_DIR})
-message("路径4 CMAKE_CURRENT_BINARY_DIR",${CMAKE_CURRENT_BINARY_DIR})
+message("路径1 CMAKE_SOURCE_DIR" ${CMAKE_SOURCE_DIR})
+message("路径3 CMAKE_CURRENT_SOURCE_DIR" ${CMAKE_CURRENT_SOURCE_DIR})
+message("路径2 CMAKE_BINARY_DIR" ${CMAKE_BINARY_DIR})
+message("路径4 CMAKE_CURRENT_BINARY_DIR" ${CMAKE_CURRENT_BINARY_DIR})
 
 
 
@@ -25,7 +25,7 @@ set(project_name "项目名字" )
 project( "${project_name}" )    
 set(target_main_exe "main" )
 
-set(CMAKE_BUILD_RPATH "${CMAKE_CURRENT_SOURCE_DIR}/build" )
+set(CMAKE_BUILD_RPATH "${CMAKE_SOURCE_DIR}/build" )
  
 
 #################################################
@@ -57,8 +57,8 @@ add_compile_options(-Wall -Wextra -pedantic   )
 #################################################
 ## 添加所有源代码文件
 file(GLOB SOURCE_FILES 
-    "${CMAKE_CURRENT_SOURCE_DIR}/inc/*.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+    "${CMAKE_SOURCE_DIR}/inc/*.c"
+    "${CMAKE_SOURCE_DIR}/src/*.cpp"
 )
 message("源文件路径 : ${SOURCE_FILES}")
 
@@ -67,14 +67,16 @@ message("源文件路径 : ${SOURCE_FILES}")
 #################################################
 ## 添加可执行文件目标
 add_executable(${target_main_exe} ${SOURCE_FILES}) # 添加输出的目标可执行文件
-target_include_directories(${target_main_exe} PRIVATE   # 添加 头文件路径
-    ${CMAKE_CURRENT_SOURCE_DIR}/inc
+target_include_directories(${target_main_exe} PUBLIC   # 添加 头文件路径
+    ${CMAKE_SOURCE_DIR}/inc
 )
-set_target_properties(${target_main_exe}  # 设置输出文件路径
-    PROPERTIES OUTPUT_NAME "main_rename" 
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Debug/" 
+set_target_properties(${target_main_exe}  PROPERTIES 
+    OUTPUT_NAME "main" 
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Debug/libs" 
+    # CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ""
 )
-
+set(lib_PATHS "${CMAKE_SOURCE_DIR}/Debug/libs")
+target_link_options(${target_main_exe} PRIVATE "-Wl,-rpath=${lib_PATHS}") #添加执行调试的 静态动态库路径
 
 
 
@@ -82,8 +84,8 @@ set_target_properties(${target_main_exe}  # 设置输出文件路径
 #################################################
 ## 添加子模块, 第三方库函数
 set(MODULE_PATHS        # 定义一个变量来存储子模块路径列表
-    ${CMAKE_CURRENT_SOURCE_DIR}/module1
-    ${CMAKE_CURRENT_SOURCE_DIR}/module2
+    ${CMAKE_SOURCE_DIR}/module1
+    ${CMAKE_SOURCE_DIR}/module2
 )
 set(MODULE_LIBRARIES    # 定义一个变量来存储模块库名称列表
     "module1_shared"
@@ -94,10 +96,13 @@ foreach(module_path IN LISTS MODULE_PATHS) # 添加子模块路径
 endforeach()
 foreach(module_name IN LISTS MODULE_LIBRARIES) # 设置动态/静态库文件的构建输出路径
     set_target_properties(${module_name}    PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Debug/${module_name}_arch"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Debug/${module_name}_libs" 
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Debug/${module_name}_runs"
-        FOLDER "${module_name}_lib") # IDE添加分组
+    # ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Debug/${module_name}_arch"
+    # LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Debug/${module_name}_libs" 
+    # RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Debug/${module_name}_runs"
+    ARCHIVE_OUTPUT_DIRECTORY "${lib_PATHS}"
+    LIBRARY_OUTPUT_DIRECTORY "${lib_PATHS}" 
+    RUNTIME_OUTPUT_DIRECTORY "${lib_PATHS}"
+)
 endforeach()
 
 foreach(module_name IN LISTS MODULE_LIBRARIES)

@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "J:/workplace/cmake_cpp/Debug/main_rename.exe"
+			"path" : "J:/workplace/cmake_cpp/Debug/libs/main.exe"
 		},
 		{
-			"path" : "J:/workplace/cmake_cpp/Debug/main_rename.pdb"
+			"path" : "J:/workplace/cmake_cpp/Debug/libs/main.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -14,6 +14,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"target_link_options",
 			"target_link_libraries",
 			"add_compile_options",
 			"add_definitions",
@@ -37,29 +38,35 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 104,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 104,
+				"line" : 79,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 54,
+				"line" : 109,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 109,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 43,
+				"line" : 54,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
+				"file" : 0,
+				"line" : 43,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
 				"file" : 0,
 				"line" : 70,
 				"parent" : 0
@@ -75,37 +82,37 @@
 					"fragment" : "-g -std=gnu++11"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "-Wall"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "-Wextra"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "-pedantic"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"define" : "DEBUG"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 6,
+					"backtrace" : 7,
 					"path" : "J:/workplace/cmake_cpp/inc"
 				},
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "J:/workplace/cmake_cpp/module1"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "J:/workplace/cmake_cpp/module2"
 				}
 			],
@@ -129,11 +136,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 2,
+			"backtrace" : 3,
 			"id" : "module1_shared::@7b43c4801f818007b112"
 		},
 		{
-			"backtrace" : 3,
+			"backtrace" : 4,
 			"id" : "module2_static::@bf6db2ce7a83d35d5172"
 		}
 	],
@@ -152,12 +159,17 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "J:\\workplace\\cmake_cpp\\Debug\\module1_shared_arch\\libmodule1_shared_rename.dll.a",
-				"role" : "libraries"
+				"fragment" : "-Wl,-rpath=J:/workplace/cmake_cpp/Debug/libs",
+				"role" : "flags"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "J:\\workplace\\cmake_cpp\\Debug\\module2_static_arch\\libmodule2_static_rename.a",
+				"fragment" : "J:\\workplace\\cmake_cpp\\Debug\\libs\\libmodule1_shared_rename.dll.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "J:\\workplace\\cmake_cpp\\Debug\\libs\\libmodule2_static_rename.a",
 				"role" : "libraries"
 			},
 			{
@@ -168,7 +180,7 @@
 		"language" : "CXX"
 	},
 	"name" : "main",
-	"nameOnDisk" : "main_rename.exe",
+	"nameOnDisk" : "main.exe",
 	"paths" : 
 	{
 		"build" : ".",

@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "J:/workplace/cmake_cpp/Debug/module2_static_arch/libmodule2_static_rename.a"
+			"path" : "J:/workplace/cmake_cpp/Debug/libs/libmodule2_static_rename.a"
 		}
 	],
 	"backtrace" : 1,
@@ -105,10 +105,6 @@
 			]
 		}
 	],
-	"folder" : 
-	{
-		"name" : "module2_static_lib"
-	},
 	"id" : "module2_static::@bf6db2ce7a83d35d5172",
 	"name" : "module2_static",
 	"nameOnDisk" : "libmodule2_static_rename.a",

@@ -1,96 +1,39 @@
-// {
-//     "version": "2.0.0",
-
-//     "tasks": [
-//         {
-//             "label": "任务一:变量输入",
-//             "type": "shell",
-//             "group": "build",
-//             "windows": {//windows下操作
-//                 "command": "echo",
-//                 "args": [
-//                     "选择到的变量值:varable1_pick=${input:varable1_pick}",
-//                     "输入的变量字符:varable2_input=${input:varable2_input}",
-//                     "$env:myvar1",
-//                     "$env:myvar2",
-//                     "当前打开文件路径:${fileDirname}"
-//                 ],
-//                 "options": {
-//                     "cwd": "${workspaceFolder}", //command 运行在"cwd"指定的目录
-//                     "env": {
-//                         "myvar1": "环境变量中家目录: ${env:HOMEPATH};", //windows下家目录环境变量
-//                         "myvar2": "当前工作区的路径: ${workspaceFolder}",// vscode指代路径
-//                     },
-//                     // "shell": {
-//                     //指定执行任务的shell终端, powershell, bashshell? 
-//                     //默认看自己的vscode settings.json配置默认的shell
-//                     //     "executable": "",
-//                     //     "executable": "", //windows下默认powershell,可以写自己的shell
-//                     //     "args": []
-//                     // }
-//                 }
-//             }
-//         },
-//         {
-//             "label": "任务二:task快速调用sh脚本,并传参",
-//             "type": "shell",
-//             "options": { "cwd": "${workspaceFolder}",},
-//             "windows": {
-//                 "command": "./hello.ps1",
-//                 "args": [
-//                     "task传递参数1,脚本路径 ${workspaceFolder}\\hello.sh",
-//                     "task传递参数2",
-//                     "task传递参数3",
-//                     "task传递参数4,任务二,利用task给shell脚本传参",
-//                 ],
-//             },
-//             "group": {"kind": "build","isDefault": true,},
-//             "dependsOrder": "sequence",
-//             "dependsOn": [
-//                 "任务一:变量输入",
-//             ],
-//         },
-//         {
-//             "label": "任务test: 查看vscode指代变量测试任务",
-//             "type": "shell",
-//             "command": "echo",
-//             "args": [
-//                 "{workspaceFolder}          ${workspaceFolder}          \r\n",
-//                 "{workspaceFolderBasename}  ${workspaceFolderBasename}  \r\n",
-//                 "{file}                     ${file}                     \r\n",
-//                 "{fileWorkspaceFolder}      ${fileWorkspaceFolder}      \r\n",
-//                 "{relativeFile}             ${relativeFile}             \r\n",
-//                 "{relativeFileDirname}      ${relativeFileDirname}      \r\n",
-//                 "{fileBasename}             ${fileBasename}             \r\n",
-//                 "{fileBasenameNoExtension}  ${fileBasenameNoExtension}  \r\n",
-//                 "{fileExtname}              ${fileExtname}              \r\n",
-//                 "{fileDirname}              ${fileDirname}              \r\n",
-//                 "{fileDirnameBasename}      ${fileDirnameBasename}      \r\n",
-//                 "不完全测试,详细查看https://code.visualstudio.com/docs/editor/variables-reference",
-//                 "某些vscode指代的变量会随,打开的文件和文件夹变换,并不固定; 仅供参考",
-//                 "###############################################",
-//             ],
-//             "group": {"kind": "test","isDefault": true },
-//         },
-//     ],
-    
-//     "inputs": [  
-//         {
-//             "id": "varable1_pick",
-//             "type": "pickString",//"输入参数类型: 挑选预设的选项",
-//             "default": "选项1: make arch=arm",
-//             "options": [
-//                 "选项1: make arch=arm",
-//                 "选项2: make arch=riscv",
-//               ],
-//             "description": "选项类型的输入参数,可以自己设计预选项",
-//         },
-//         {
-//             "id": "varable2_input",
-//             "type": "promptString",// 输入参数类型: 直接输入的字符串
-//             "password": false,// 是否是密码**掩盖输入
-//             "default": "默认字符串",
-//             "description": "直接输入的字符串,输入即所得的变量值",
-//         },
-//       ],
-// }
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "shell",
+            "label": "CMake: build",
+            "command": "cmake ../",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "problemMatcher": [],
+        },
+        {
+            "type": "shell",
+            "label": "makefile: make",
+            "command": "mingw32-make.exe",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "problemMatcher": [],
+        },
+        {
+            "type": "shell",
+            "label": "前置构建任务:Pre Build Task",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "dependsOn": [
+                "CMake: build",
+                "makefile: make"
+            ],
+            "dependsOrder": "sequence",
+        },
+    ],
+}

@@ -60,20 +60,31 @@ CMake 中有多个预定义变量用来指示项目的不同目录结构和构�
 
 ## 设置CMAKE预定义变量 `set()`
 ### 设置 项目构建
-+ if(WIN32) set(CMAKE_GNUtoMS ON) endif(WIN32) # 如果是window平台, 
-+  set(CMAKE_BUILD_RPATH "${CMAKE_SOURCE_DIR}/build" ) 构建目录 ./build
-+  set(CMAKE_BUILD_TYPE Debug)  
+```cmake
+if(WIN32) 
+  set(CMAKE_GNUtoMS ON) 
+endif(WIN32) # 如果是window平台, 
+set(CMAKE_BUILD_RPATH "${CMAKE_SOURCE_DIR}/build" ) 构建目录 ./build
+set(CMAKE_BUILD_TYPE Debug)  
+```
+
 ---
 ### 设置编译选项 编译链 编译器
-+  set(CMAKE_CXX_STANDARD 11)
-+  set(CMAKE_CXX_STANDARD_REQUIRED True)
-+  set(CMAKE_C_COMPILER "gcc")
-+  set(CMAKE_CXX_COMPILER "g++")
+```cmake
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_C_COMPILER "gcc") 
+set(CMAKE_CXX_COMPILER "g++")
+```
+
 ---
 ## 设置 项目输出
-+ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)
-+ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY)
-+ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+```cmake
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+```
+
 
 # 添加编译选项
 
@@ -83,7 +94,9 @@ add_compile_options(-Wall -Wextra -pedantic   )
 ```
 
 ## `add_definitions(-DDEBUG -DMYDEFINE)` 添加宏定义
- 
+
+---
+
 
 
 
@@ -99,20 +112,29 @@ add_compile_options(-Wall -Wextra -pedantic   )
 # 搜索&添加 `头文件 .h .hpp`
 
 ## `target_include_directories` 
-+ target_include_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
 + 这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。
+```cmake
+target_include_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
+```
 
 ## `target_link_directories`
-+ target_link_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
 + 这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。
+```cmake
+target_link_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
+```
  
 ## `include_directories` 
 + 添加头文件包含路径 全局
-+ include_directories(path1 path2 ...)
+```cmake
+include_directories(path1 path2 ...)
+```
 
 ## `link_directories` 
 + 添加头文件包含路径 全局
-+ link_directories(path1 path2 ...)
+```cmake
+link_directories(path1 path2 ...)
+```
+ 
 
 ## ==需要注意的是==
 1. 尽量避免在 CMake 中使用 `include_directories` 和 `link_directories` 命令来处理第三方库的头文件和链接库路径。
@@ -123,14 +145,18 @@ add_compile_options(-Wall -Wextra -pedantic   )
 
 # 创建构建目标
 ## `add_library`  静态/动态/组件库
-> add_library(<name> [STATIC | SHARED | MODULE]
+```cmake
+add_library(<name> [STATIC | SHARED | MODULE]
     [EXCLUDE_FROM_ALL] 
     [<source>...])
+```
 
 ## `add_executable` 可执行文件
-> add_executable(<name> [WIN32] [MACOSX_BUNDLE]
-                [EXCLUDE_FROM_ALL]
-                [source1] [source2 ...])
+```cmake 
+add_executable(<name> [WIN32] [MACOSX_BUNDLE]
+    [EXCLUDE_FROM_ALL]
+    [source1] [source2 ...])
+```
 
 ## `add_subdirectory` :纳入子CMake构建配置
 ```cmake
@@ -204,6 +230,19 @@ set_property(TARGET my_target PROPERTY COMPILE_DEFINITIONS MY_DEFINITION=ON)
 
 # 导入静态/动态库文件
 https://zhuanlan.zhihu.com/p/373363335
+##  target_link_options
+Add options to the link step for an executable, shared library or module
++ 添加执选项到目标可执行文件、共享库或模块的链接阶段。
+library target.
+```cmake
+ target_link_options(<target> [BEFORE]
+   <INTERFACE|PUBLIC|PRIVATE> [items1...]
+   [<INTERFACE|PUBLIC|PRIVATE> [items2...] ...])
+```
+
+# cmake构建主要流程
+https://zhuanlan.zhihu.com/p/371257515
+
 
 
 

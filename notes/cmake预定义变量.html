@@ -3084,31 +3084,31 @@ body,
 <p>以上这些变量在CMake中都是全局可用的，可以帮助开发者灵活地处理不同层级的目录结构、构建选项以及系统相关的配置信息。此外，还有许多其他的预定义变量，具体可查阅CMake官方文档以获取完整列表及最新说明。</p>
 <h2 id="%E8%AE%BE%E7%BD%AEcmake%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F-set">设置CMAKE预定义变量 <code>set()</code></h2>
 <h3 id="%E8%AE%BE%E7%BD%AE-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA">设置 项目构建</h3>
-<ul>
-<li>if(WIN32) set(CMAKE_GNUtoMS ON) endif(WIN32) # 如果是window平台,</li>
-<li>set(CMAKE_BUILD_RPATH &quot;${CMAKE_SOURCE_DIR}/build&quot; ) 构建目录 ./build</li>
-<li>set(CMAKE_BUILD_TYPE Debug)</li>
-</ul>
+<pre><code class="language-cmake"><span class="hljs-keyword">if</span>(WIN32) 
+  <span class="hljs-keyword">set</span>(CMAKE_GNUtoMS <span class="hljs-keyword">ON</span>) 
+<span class="hljs-keyword">endif</span>(WIN32) <span class="hljs-comment"># 如果是window平台, </span>
+<span class="hljs-keyword">set</span>(CMAKE_BUILD_RPATH <span class="hljs-string">&quot;${CMAKE_SOURCE_DIR}/build&quot;</span> ) 构建目录 ./build
+<span class="hljs-keyword">set</span>(CMAKE_BUILD_TYPE Debug)  
+</code></pre>
 <hr>
 <h3 id="%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9-%E7%BC%96%E8%AF%91%E9%93%BE-%E7%BC%96%E8%AF%91%E5%99%A8">设置编译选项 编译链 编译器</h3>
-<ul>
-<li>set(CMAKE_CXX_STANDARD 11)</li>
-<li>set(CMAKE_CXX_STANDARD_REQUIRED True)</li>
-<li>set(CMAKE_C_COMPILER &quot;gcc&quot;)</li>
-<li>set(CMAKE_CXX_COMPILER &quot;g++&quot;)</li>
-</ul>
+<pre><code class="language-cmake"><span class="hljs-keyword">set</span>(CMAKE_CXX_STANDARD <span class="hljs-number">11</span>)
+<span class="hljs-keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="hljs-keyword">True</span>)
+<span class="hljs-keyword">set</span>(CMAKE_C_COMPILER <span class="hljs-string">&quot;gcc&quot;</span>) 
+<span class="hljs-keyword">set</span>(CMAKE_CXX_COMPILER <span class="hljs-string">&quot;g++&quot;</span>)
+</code></pre>
 <hr>
 <h2 id="%E8%AE%BE%E7%BD%AE-%E9%A1%B9%E7%9B%AE%E8%BE%93%E5%87%BA">设置 项目输出</h2>
-<ul>
-<li>set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)</li>
-<li>set(CMAKE_LIBRARY_OUTPUT_DIRECTORY)</li>
-<li>set(CMAKE_RUNTIME_OUTPUT_DIRECTORY)</li>
-</ul>
+<pre><code class="language-cmake"><span class="hljs-keyword">set</span>(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)
+<span class="hljs-keyword">set</span>(CMAKE_LIBRARY_OUTPUT_DIRECTORY)
+<span class="hljs-keyword">set</span>(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+</code></pre>
 <h1 id="%E6%B7%BB%E5%8A%A0%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9">添加编译选项</h1>
 <h2 id="addcompileoptions"><code>add_compile_options</code></h2>
 <pre><code class="language-cmake"><span class="hljs-keyword">add_compile_options</span>(-Wall -Wextra -pedantic   ) 
 </code></pre>
 <h2 id="adddefinitions-ddebug--dmydefine-%E6%B7%BB%E5%8A%A0%E5%AE%8F%E5%AE%9A%E4%B9%89"><code>add_definitions(-DDEBUG -DMYDEFINE)</code> 添加宏定义</h2>
+<hr>
 <h1 id="%E6%90%9C%E5%AF%BB%E6%B7%BB%E5%8A%A0-%E6%BA%90%E6%96%87%E4%BB%B6-c-cpp-s">搜寻&amp;添加 <code>源文件 .c .cpp .s</code></h1>
 <h2 id="auxsourcedirectory"><code>aux_source_directory</code></h2>
 <ul>
@@ -3127,24 +3127,28 @@ body,
 <h1 id="%E6%90%9C%E7%B4%A2%E6%B7%BB%E5%8A%A0-%E5%A4%B4%E6%96%87%E4%BB%B6-h-hpp">搜索&amp;添加 <code>头文件 .h .hpp</code></h1>
 <h2 id="targetincludedirectories"><code>target_include_directories</code></h2>
 <ul>
-<li>target_include_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)</li>
 <li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
 </ul>
+<pre><code class="language-cmake"><span class="hljs-keyword">target_include_directories</span>(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
+</code></pre>
 <h2 id="targetlinkdirectories"><code>target_link_directories</code></h2>
 <ul>
-<li>target_link_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)</li>
 <li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
 </ul>
+<pre><code class="language-cmake"><span class="hljs-keyword">target_link_directories</span>(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
+</code></pre>
 <h2 id="includedirectories"><code>include_directories</code></h2>
 <ul>
 <li>添加头文件包含路径 全局</li>
-<li>include_directories(path1 path2 ...)</li>
 </ul>
+<pre><code class="language-cmake"><span class="hljs-keyword">include_directories</span>(path1 path2 ...)
+</code></pre>
 <h2 id="linkdirectories"><code>link_directories</code></h2>
 <ul>
 <li>添加头文件包含路径 全局</li>
-<li>link_directories(path1 path2 ...)</li>
 </ul>
+<pre><code class="language-cmake"><span class="hljs-keyword">link_directories</span>(path1 path2 ...)
+</code></pre>
 <h2 id="%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E6%98%AF">==需要注意的是==</h2>
 <ol>
 <li>尽量避免在 CMake 中使用 <code>include_directories</code> 和 <code>link_directories</code> 命令来处理第三方库的头文件和链接库路径。</li>
@@ -3152,17 +3156,15 @@ body,
 </ol>
 <h1 id="%E5%88%9B%E5%BB%BA%E6%9E%84%E5%BB%BA%E7%9B%AE%E6%A0%87">创建构建目标</h1>
 <h2 id="addlibrary-%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%BA%93"><code>add_library</code>  静态/动态/组件库</h2>
-<blockquote>
-<p>add_library(<name> [STATIC | SHARED | MODULE]
-[EXCLUDE_FROM_ALL]
-[<source>...])</p>
-</blockquote>
+<pre><code class="language-cmake"><span class="hljs-keyword">add_library</span>(&lt;name&gt; [STATIC | SHARED | MODULE]
+    [EXCLUDE_FROM_ALL] 
+    [&lt;source&gt;...])
+</code></pre>
 <h2 id="addexecutable-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><code>add_executable</code> 可执行文件</h2>
-<blockquote>
-<p>add_executable(<name> [WIN32] [MACOSX_BUNDLE]
-[EXCLUDE_FROM_ALL]
-[source1] [source2 ...])</p>
-</blockquote>
+<pre><code class="language-cmake"><span class="hljs-keyword">add_executable</span>(&lt;name&gt; [WIN32] [MACOSX_BUNDLE]
+    [EXCLUDE_FROM_ALL]
+    [source1] [source2 ...])
+</code></pre>
 <h2 id="addsubdirectory-%E7%BA%B3%E5%85%A5%E5%AD%90cmake%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE"><code>add_subdirectory</code> :纳入子CMake构建配置</h2>
 <pre><code class="language-cmake"><span class="hljs-keyword">add_subdirectory</span>(source_dir 
     [binary_dir] 
@@ -3234,6 +3236,18 @@ body,
 </ul>
 <h1 id="%E5%AF%BC%E5%85%A5%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6">导入静态/动态库文件</h1>
 <p><a href="https://zhuanlan.zhihu.com/p/373363335">https://zhuanlan.zhihu.com/p/373363335</a></p>
+<h2 id="targetlinkoptions">target_link_options</h2>
+<p>Add options to the link step for an executable, shared library or module</p>
+<ul>
+<li>添加执选项到目标可执行文件、共享库或模块的链接阶段。
+library target.</li>
+</ul>
+<pre><code class="language-cmake"> <span class="hljs-keyword">target_link_options</span>(&lt;<span class="hljs-keyword">target</span>&gt; [BEFORE]
+   &lt;INTERFACE|PUBLIC|PRIVATE&gt; [items1...]
+   [&lt;INTERFACE|PUBLIC|PRIVATE&gt; [items2...] ...])
+</code></pre>
+<h1 id="cmake%E6%9E%84%E5%BB%BA%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B">cmake构建主要流程</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/371257515">https://zhuanlan.zhihu.com/p/371257515</a></p>
 </div>
         </div>
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>

@@ -1,0 +1,47 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "lib_dll_paths":[
+        "${workspaceFolder}\\Debug",
+        "${workspaceFolder}\\Debug\\libs",
+    ],
+    "configurations": [
+        {
+            "name": "gdb Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Debug/main.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            // "additionalSOLibSearchPath": "${workspaceFolder}\\Debug\\libs",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "${env:PATH};${workspaceFolder}\\Debug;${workspaceFolder}\\Debug\\libs;"
+                },
+            ],
+            
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb使能GDB整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "前置构建任务:Pre Build Task",
+
+        }
+
+    ]
+}
