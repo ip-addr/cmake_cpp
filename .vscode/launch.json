@@ -12,7 +12,7 @@
             "name": "gdb Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Debug/main.exe",
+            "program": "${workspaceFolder}/Debug/libs/main.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
