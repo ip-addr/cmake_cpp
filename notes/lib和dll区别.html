@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>cmake&#x9884;&#x8bbe;&#x53d8;&#x91cf;</title>
+            <title></title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -2814,8 +2814,7 @@ body,
 }
 
 </style>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+            
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -2944,299 +2943,84 @@ body,
             <div class="github-markdown-content"><span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <p>CMake 中有多个预定义变量用来指示项目的不同目录结构和构建相关的路径，这里是一些常见的预定义变量及其含义：</p>
-<h1 id="cmake%E9%A2%84%E8%AE%BE%E5%8F%98%E9%87%8F">cmake预设变量</h1>
-<h2 id="%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E8%A1%A8%E6%A0%BC">预定义变量表格</h2>
-<table>
-<thead>
-<tr>
-<th>CMake 变量名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CMAKE_SOURCE_DIR</td>
-<td>当前 CMakeLists.txt 所在的源码目录的根路径</td>
-</tr>
-<tr>
-<td>CMAKE_BINARY_DIR</td>
-<td>构建目录的根路径，用于存放构建生成的可执行文件、库和其他输出</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_SOURCE_DIR</td>
-<td>当前处理的 CMakeLists.txt 所在的源码目录路径</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_BINARY_DIR</td>
-<td>当前处理的 CMakeLists.txt 所在的构建目录路径</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_LIST_DIR</td>
-<td>当前处理的 CMakeLists.txt 文件的实际目录路径（源码或构建）</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_LIST_LINE</td>
-<td>当前正在处理的 CMakeLists.txt 文件中的行号</td>
-</tr>
-<tr>
-<td>CMAKE_MODULE_PATH</td>
-<td>用于查找额外 CMake 模块（.cmake 文件）的搜索路径列表</td>
-</tr>
-<tr>
-<td>CMAKE_INCLUDE_CURRENT_DIR</td>
-<td>若设为 ON，将在构建时自动将当前 CMakeLists.txt 目录添加到包含路径中</td>
-</tr>
-<tr>
-<td>CMAKE_LIBRARY_OUTPUT_DIRECTORY</td>
-<td>库文件的输出目录</td>
-</tr>
-<tr>
-<td>CMAKE_RUNTIME_OUTPUT_DIRECTORY</td>
-<td>可执行文件的输出目录</td>
-</tr>
-</tbody>
-</table>
-<h2 id="%E9%A2%84%E8%AE%BE%E5%8F%98%E9%87%8F%E8%AF%A6%E8%A7%A3">预设变量详解</h2>
-<ol>
-<li>
-<p><strong><code>CMAKE_CURRENT_SOURCE_DIR</code></strong></p>
-<ul>
-<li>它指定了当前正在处理的 CMakeLists.txt 文件所在的目录。当你在多级目录结构中使用 <code>add_subdirectory()</code> 时，这个变量会随着上下文切换而变化，总是指向当前 CMakeLists.txt 文件所在的路径。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>PROJECT_SOURCE_DIR</code></strong></p>
-<ul>
-<li>这个变量代表了项目的顶层（根）源代码目录，即包含初始 <code>project()</code> 命令的那个 CMakeLists.txt 文件所在的目录。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_CURRENT_BINARY_DIR</code></strong></p>
-<ul>
-<li>表示当前 CMakeLists.txt 文件对应的构建目录，在构建过程中，这里的路径是指构建时产生的中间文件和目标文件的存放位置。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>PROJECT_BINARY_DIR</code></strong></p>
-<ul>
-<li>同样代表项目顶层的构建目录，也就是在项目根目录下执行 <code>cmake</code> 时生成的构建文件的父目录，通常相对于 <code>PROJECT_SOURCE_DIR</code>，它是一个独立的 <code>build</code> 目录。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_BINARY_DIR</code></strong></p>
-<ul>
-<li>在单个顶级 CMake 构建中，<code>CMAKE_BINARY_DIR</code> 等同于 <code>PROJECT_BINARY_DIR</code>，但在多级构建配置中，它指的是最外层或“顶级”构建目录。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_SOURCE_DIR</code></strong></p>
-<ul>
-<li>这个变量类似于 <code>PROJECT_SOURCE_DIR</code>，不过在多目录外部项目（ExternalProject）中可能有所不同，一般情况下两者相同，都指向项目根目录。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_MODULE_PATH</code></strong></p>
-<ul>
-<li>用于搜索 CMake 模块的额外路径列表。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_CURRENT_LIST_DIR</code></strong></p>
-<ul>
-<li>表示当前正在处理的 CMakeLists.txt 或 CMake 模块文件的实际物理路径。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_CURRENT_LIST_FILE</code></strong></p>
-<ul>
-<li>包含当前正在执行的 CMakeLists.txt 或 CMake 模块文件的完整路径。</li>
-</ul>
-</li>
-</ol>
-<h2 id="%E5%85%B6%E4%BB%96%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F">其他预定义变量：</h2>
-<ul>
-<li>
-<p><code>CMAKE_GENERATOR</code></p>
-<ul>
-<li>当前使用的构建工具链（如 &quot;Unix Makefiles&quot;、&quot;MinGW Makefiles&quot;、&quot;Ninja&quot; 等）。</li>
-</ul>
-</li>
-<li>
-<p><code>CMAKE_BUILD_TYPE</code></p>
-<ul>
-<li>指定构建类型（如 &quot;Debug&quot;、&quot;Release&quot; 等）。</li>
-</ul>
-</li>
-<li>
-<p><code>CMAKE_&lt;LANG&gt;_COMPILER</code></p>
-<ul>
-<li>指定用于特定语言（如 C、CXX）的编译器路径。</li>
-</ul>
-</li>
-<li>
-<p><code>CMAKE_SYSTEM_NAME</code>, <code>CMAKE_SYSTEM_VERSION</code>, <code>CMAKE_SYSTEM_PROCESSOR</code></p>
-<ul>
-<li>描述目标系统的名称、版本和处理器架构。</li>
-</ul>
-</li>
-</ul>
-<p>以上这些变量在CMake中都是全局可用的，可以帮助开发者灵活地处理不同层级的目录结构、构建选项以及系统相关的配置信息。此外，还有许多其他的预定义变量，具体可查阅CMake官方文档以获取完整列表及最新说明。</p>
-<h2 id="%E8%AE%BE%E7%BD%AEcmake%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F-set">设置CMAKE预定义变量 <code>set()</code></h2>
-<h3 id="%E8%AE%BE%E7%BD%AE-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA">设置 项目构建</h3>
-<ul>
-<li>if(WIN32) set(CMAKE_GNUtoMS ON) endif(WIN32) # 如果是window平台,</li>
-<li>set(CMAKE_BUILD_RPATH &quot;${CMAKE_SOURCE_DIR}/build&quot; ) 构建目录 ./build</li>
-<li>set(CMAKE_BUILD_TYPE Debug)</li>
-</ul>
-<hr>
-<h3 id="%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9-%E7%BC%96%E8%AF%91%E9%93%BE-%E7%BC%96%E8%AF%91%E5%99%A8">设置编译选项 编译链 编译器</h3>
-<ul>
-<li>set(CMAKE_CXX_STANDARD 11)</li>
-<li>set(CMAKE_CXX_STANDARD_REQUIRED True)</li>
-<li>set(CMAKE_C_COMPILER &quot;gcc&quot;)</li>
-<li>set(CMAKE_CXX_COMPILER &quot;g++&quot;)</li>
-</ul>
-<hr>
-<h2 id="%E8%AE%BE%E7%BD%AE-%E9%A1%B9%E7%9B%AE%E8%BE%93%E5%87%BA">设置 项目输出</h2>
-<ul>
-<li>set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)</li>
-<li>set(CMAKE_LIBRARY_OUTPUT_DIRECTORY)</li>
-<li>set(CMAKE_RUNTIME_OUTPUT_DIRECTORY)</li>
-</ul>
-<h1 id="%E6%B7%BB%E5%8A%A0%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9">添加编译选项</h1>
-<h2 id="addcompileoptions"><code>add_compile_options</code></h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">add_compile_options</span>(-Wall -Wextra -pedantic   ) 
+                <p>共有两种库：
+一种是 LIB 包含了函数所在的 DLL 文件和文件中函数位置的信息（入口），代码由运行时加载在进程空间中的 DLL 提供，称为动态链接库 dynamic link library。
+一种是 LIB 包含函数代码本身，在编译时直接将代码加入程序当中，称为静态链接库 static link library。
+共有两种链接方式：
+动态链接使用动态链接库，允许可执行模块（.dll 文件或.exe 文件）仅包含在运行时定位 DLL 函数的可执行代码所需的信息。
+静态链接使用静态链接库，链接器从静态链接库 LIB 获取所有被引用函数，并将库同代码一起放到可执行文件中。</p>
+<p>关于 lib 和 dll 的区别如下：
+（1）lib 是编译时用到的，dll 是运行时用到的。如果要完成源代码的编译，只需要 lib；如果要使动态链接的程序运行起来，只需要 dll。
+（2）如果有 dll 文件，那么 lib 一般是一些索引信息，记录了 dll 中函数的入口和位置，dll 中是函数的具体内容；如果只有 lib 文件，那么这个 lib 文件是静态编译出来的，索引和实现都在其中。使用静态编译的 lib 文件，在运行程序时不需要再挂动态库，缺点是导致应用程序比较大，而且失去了动态库的灵活性，发布新版本时要发布新的应用程序才行。
+（3）动态链接的情况下，有两个文件：一个是 LIB 文件，一个是 DLL 文件。LIB 包含被 DLL 导出的函数名称和位置，DLL 包含实际的函数和数据，应用程序使用 LIB 文件链接到 DLL 文件。在应用程序的可执行文件中，存放的不是被调用的函数代码，而是 DLL 中相应函数代码的地址，从而节省了内存资源。DLL 和 LIB 文件必须随应用程序一起发行，否则应用程序会产生错误。如果不想用 lib 文件或者没有 lib 文件，可以用 WIN32 API 函数 LoadLibrary、GetProcAddress 装载。</p>
+<p>使用 lib 需注意两个文件：
+（1）.h 头文件，包含 lib 中说明输出的类或符号原型或数据结构。应用程序调用 lib 时，需要将该文件包含入应用程序的源文件中。
+（2）.LIB 文件，略。</p>
+<p>使用 dll 需注意三个文件：
+（1）.h 头文件，包含 dll 中说明输出的类或符号原型或数据结构的.h 文件。应用程序调用 dll 时，需要将该文件包含入应用程序的源文件中。
+（2）.LIB 文件，是 dll 在编译、链接成功之后生成的文件，作用是当其他应用程序调用 dll 时，需要将该文件引入应用程序，否则产生错误。如果不想用 lib 文件或者没有 lib 文件，可以用 WIN32 API 函数 LoadLibrary、GetProcAddress 装载。
+（3）.dll 文件，真正的可执行文件，开发成功后的应用程序在发布时，只需要有.exe 文件和.dll 文件，并不需要.lib 文件和.h 头文件。</p>
+<p>使用 lib 的方法：
+静态 lib 中，一个 lib 文件实际上是任意个 obj 文件的集合，obj 文件是 cpp 文件编译生成的。在编译这种静态库工程时，根本不会遇到链接错误；即使有错，也只会在使用这个 lib 的 EXT 文件或者 DLL 工程里暴露出来。
+在 VC 中新建一个 static library 类型的工程 Lib，加入 test.cpp 文件和 test.h 文件（头文件内包括函数声明），然后编译，就生成了 Lib.lib 文件。
+别的工程要使用这个 lib 有两种方式：
+（1）在 project-&gt;link-&gt;Object/Library Module 中加入 Lib.lib 文件（先查询工程目录，再查询系统 Lib 目录）；或者在源代码中加入指令 #pragma comment (lib, “Lib.lib”)。
+（2）将 Lib.lib 拷入工程所在目录，或者执行文件生成的目录，或者系统 Lib 目录中。
+（3）加入相应的头文件 test.h。</p>
+<p>使用 DLL 的方法：
+使用动态链接中的 lib，不是 obj 文件的集合，即里面不会有实际的实现，它只是提供动态链接到 DLL 所需要的信息，这种 lib 可以在编译一个 DLL 工程时由编译器生成。
+创建 DLL 工程的方法（略）。
+（1）隐式链接
+第一种方法是：通过 project-&gt;link-&gt;Object/Library Module 中加入.lib 文件（或者在源代码中加入指令 #pragma comment (lib, “Lib.lib”)），并将.dll 文件置入工程所在目录，然后添加对应的.h 头文件。</p>
+<pre><code class="language-c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;stdafx.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;DLLSample.h&quot;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">pragma</span> comment(lib, <span class="hljs-string">&quot;DLLSample.lib&quot;</span>)    <span class="hljs-comment">// 你也可以在项目属性中设置库的链接</span></span>
+
+ <span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+{
+        TestDLL(<span class="hljs-number">123</span>);   <span class="hljs-comment">//dll 中的函数，在 DllSample.h 中声明</span>
+        <span class="hljs-keyword">return</span>(<span class="hljs-number">1</span>);
+}
 </code></pre>
-<h2 id="adddefinitions-ddebug--dmydefine-%E6%B7%BB%E5%8A%A0%E5%AE%8F%E5%AE%9A%E4%B9%89"><code>add_definitions(-DDEBUG -DMYDEFINE)</code> 添加宏定义</h2>
-<h1 id="%E6%90%9C%E5%AF%BB%E6%B7%BB%E5%8A%A0-%E6%BA%90%E6%96%87%E4%BB%B6-c-cpp-s">搜寻&amp;添加 <code>源文件 .c .cpp .s</code></h1>
-<h2 id="auxsourcedirectory"><code>aux_source_directory</code></h2>
-<ul>
-<li><code>aux_source_directory</code>:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。</li>
-</ul>
-<blockquote>
-<p>aux_source_directory(. MATH_SRC)</p>
-</blockquote>
-<h2 id="fileglob"><code>file(GLOB  )</code></h2>
-<ul>
-<li><code>file(GLOB  )</code>:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。</li>
-</ul>
-<blockquote>
-<p>file(GLOB MATH_SRC *.cpp)</p>
-</blockquote>
-<h1 id="%E6%90%9C%E7%B4%A2%E6%B7%BB%E5%8A%A0-%E5%A4%B4%E6%96%87%E4%BB%B6-h-hpp">搜索&amp;添加 <code>头文件 .h .hpp</code></h1>
-<h2 id="targetincludedirectories"><code>target_include_directories</code></h2>
-<ul>
-<li>target_include_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)</li>
-<li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
-</ul>
-<h2 id="targetlinkdirectories"><code>target_link_directories</code></h2>
-<ul>
-<li>target_link_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)</li>
-<li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
-</ul>
-<h2 id="includedirectories"><code>include_directories</code></h2>
-<ul>
-<li>添加头文件包含路径 全局</li>
-<li>include_directories(path1 path2 ...)</li>
-</ul>
-<h2 id="linkdirectories"><code>link_directories</code></h2>
-<ul>
-<li>添加头文件包含路径 全局</li>
-<li>link_directories(path1 path2 ...)</li>
-</ul>
-<h2 id="%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E6%98%AF">==需要注意的是==</h2>
-<ol>
-<li>尽量避免在 CMake 中使用 <code>include_directories</code> 和 <code>link_directories</code> 命令来处理第三方库的头文件和链接库路径。</li>
-<li>更好的做法是使用 <code>find_package</code> 命令或编写 <code>Find 模块</code>来查找和链接第三方库，这样可以更好地管理依赖关系和跨平台兼容性。</li>
-</ol>
-<h1 id="%E5%88%9B%E5%BB%BA%E6%9E%84%E5%BB%BA%E7%9B%AE%E6%A0%87">创建构建目标</h1>
-<h2 id="addlibrary-%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%BA%93"><code>add_library</code>  静态/动态/组件库</h2>
-<blockquote>
-<p>add_library(<name> [STATIC | SHARED | MODULE]
-[EXCLUDE_FROM_ALL]
-[<source>...])</p>
-</blockquote>
-<h2 id="addexecutable-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><code>add_executable</code> 可执行文件</h2>
-<blockquote>
-<p>add_executable(<name> [WIN32] [MACOSX_BUNDLE]
-[EXCLUDE_FROM_ALL]
-[source1] [source2 ...])</p>
-</blockquote>
-<h2 id="addsubdirectory-%E7%BA%B3%E5%85%A5%E5%AD%90cmake%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE"><code>add_subdirectory</code> :纳入子CMake构建配置</h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">add_subdirectory</span>(source_dir 
-    [binary_dir] 
-    [EXCLUDE_FROM_ALL] 
-    [SYSTEM]
-)
+<p>（2）显式链接
+需要函数指针和 WIN32 API 函数 LoadLibrary、GetProcAddress 装载，使用这种载入方法，不需要.lib 文件和.h 头文件，只需要.dll 文件即可（将.dll 文件置入工程目录中）。</p>
+<pre><code class="language-c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;windows.h&gt;</span>         <span class="hljs-comment">// 使用函数和某些特殊变量</span></span>
+ <span class="hljs-keyword">typedef</span> <span class="hljs-title function_">void</span> <span class="hljs-params">(*DLLFunc)</span><span class="hljs-params">(<span class="hljs-type">int</span>)</span>;
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+{
+        DLLFunc dllFunc;
+        HINSTANCE hInstLibrary = LoadLibrary(<span class="hljs-string">&quot;DLLSample.dll&quot;</span>);
+
+        <span class="hljs-keyword">if</span> (hInstLibrary == <span class="hljs-literal">NULL</span>)
+        {
+          FreeLibrary(hInstLibrary);
+        }
+        dllFunc = (DLLFunc)GetProcAddress(hInstLibrary, <span class="hljs-string">&quot;TestDLL&quot;</span>);
+        <span class="hljs-keyword">if</span> (dllFunc == <span class="hljs-literal">NULL</span>)
+        {
+          FreeLibrary(hInstLibrary);
+        }
+        dllFunc(<span class="hljs-number">123</span>);
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span>.get();
+        FreeLibrary(hInstLibrary);
+        <span class="hljs-keyword">return</span>(<span class="hljs-number">1</span>);
+}
 </code></pre>
-<ul>
-<li>
-<p><code>add_subdirectory( directory )</code> 用于将一个子目录及其内部的CMake构建配置纳入当前项目的构建过程。这个命令允许您组织大型项目为多个独立的子项目或模块，每个子项目都有自己的CMakeLists.txt文件，它们共同构成整个项目的构建规则。</p>
-</li>
-<li>
-<p><code>source_dir</code>：必填参数，指定包含子目录CMakeLists.txt文件的路径。可以是相对路径（相对于当前CMakeLists.txt文件所在目录）或绝对路径。CMake将递归地处理指定目录下的CMakeLists.txt文件，构建该子目录内的目标。</p>
-</li>
-<li>
-<p><code>binary_dir</code>：可选参数，指定子目录构建产物（如编译后的对象文件、库文件和可执行文件）存放的目录。如果未指定，CMake将默认在当前构建目录下创建一个与source_dir同名的子目录作为binary_dir。如果提供的是相对路径，它将相对于当前构建目录计算。</p>
-</li>
-<li>
-<p><code>EXCLUDE_FROM_ALL</code>：可选布尔标记，如果设置，该子目录中的目标将不会被默认构建。用户必须明确指定这些目标才能进行构建。这对于包含可选组件、测试套件或示例代码等的子目录非常有用，可以避免不必要的构建开销。</p>
-</li>
-</ul>
-<h2 id="targetlinklibraries"><code>target_link_libraries</code></h2>
-<pre><code class="language-cmake"> <span class="hljs-keyword">target_link_libraries</span>(&lt;<span class="hljs-keyword">target</span>&gt;
-    &lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;items&gt;...
-    [&lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;items&gt;...]...
-    [LINK_INTERFACE_LIBRARIES &lt;items&gt;...]
-    [LINK_PRIVATE &lt;items&gt;...]
-    [LINK_PUBLIC &lt;items&gt;...]
-    [LINK_INTERFACE_MULTIPLICITY &lt;library&gt; &lt;count&gt;...]
-)
-</code></pre>
-<ul>
-<li>负责将库文件、其他目标（如静态库或共享库）以及链接标志与给定的目标（通常是可执行文件或库）关联起来。</li>
-<li>可以清晰地定义项目中各个组成部分之间的依赖关系，确保编译器在构建目标时能正确链接所需的库文件。</li>
-</ul>
-<h1 id="%E8%AE%BE%E7%BD%AE%E7%9B%AE%E6%A0%87%E5%B1%9E%E6%80%A7">设置目标属性</h1>
-<h2 id="settargetproperties%E8%AE%BE%E7%BD%AE%E7%9A%84%E5%B1%9E%E6%80%A7"><code>set_target_properties</code>设置的属性</h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">set_target_properties</span>(<span class="hljs-variable">${module_name}</span>    PROPERTIES
-    property1 value1
-    property2 value2
-    .....
-)
-<span class="hljs-keyword">set_target_properties</span>(my_target PROPERTIES COMPILE_DEFINITIONS MY_DEFINITION=<span class="hljs-keyword">ON</span>)
-</code></pre>
-<h2 id="setproperty"><code>set_property</code></h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">set_property</span>(
-    [GLOBAL | DIRECTORY | <span class="hljs-keyword">TARGET</span> &lt;<span class="hljs-keyword">target</span>-name&gt; |
-     SOURCE &lt;source-<span class="hljs-keyword">file</span>&gt; | <span class="hljs-keyword">TEST</span> &lt;<span class="hljs-keyword">test</span>-name&gt; |
-     <span class="hljs-keyword">INSTALL</span> &lt;<span class="hljs-keyword">install</span>-<span class="hljs-keyword">target</span>&gt; | CACHE | ENVIRONMENT]
-    PROPERTY &lt;property-name&gt; [value1 [value2 ...]]
-)
-<span class="hljs-keyword">set_property</span>(<span class="hljs-keyword">TARGET</span> my_target PROPERTY COMPILE_DEFINITIONS MY_DEFINITION=<span class="hljs-keyword">ON</span>)
-</code></pre>
-<ul>
-<li><code>set_target_properties</code> 语法更紧凑</li>
-<li><code>sett_property</code> 作用范围更丰富</li>
-</ul>
-<h2 id="properties">==<code>PROPERTIES</code>==</h2>
-<ul>
-<li>OUTPUT_NAME 输出文件名字</li>
-<li>PREFIX      输出文件前缀</li>
-<li></li>
-</ul>
-<hr>
-<ul>
-<li>ARCHIVE_OUTPUT_DIRECTORY 输出导入库路径  dll.a</li>
-<li>LIBRARY_OUTPUT_DIRECTORY 输出库文件库路径 .a .lib</li>
-<li>RUNTIME_OUTPUT_DIRECTORY 输出可执行文件路径 .exe .dll</li>
-</ul>
-<h1 id="%E5%AF%BC%E5%85%A5%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6">导入静态/动态库文件</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/373363335">https://zhuanlan.zhihu.com/p/373363335</a></p>
+<p>LoadLibrary 函数利用一个名称作为参数，获得 DLL 的实例（HINSTANCE 类型是实例的句柄），通常调用该函数后需要查看一下函数返回是否成功，如果不成功则返回 NULL（句柄无效），此时调用函数 FreeLibrary 释放 DLL 获得的内存。
+GetProcAddress 函数利用 DLL 的句柄和函数的名称作为参数，返回相应的函数指针，同时必须使用强转；判断函数指针是否为 NULL，如果是则调用函数 FreeLibrary 释放 DLL 获得的内存。此后，可以使用函数指针来调用实际的函数。
+最后要记得使用 FreeLibrary 函数释放内存。</p>
+<p>注意：应用程序如何找到 DLL 文件？
+使用 LoadLibrary 显式链接，那么在函数的参数中可以指定 DLL 文件的完整路径；如果不指定路径，或者进行隐式链接，Windows 将遵循下面的搜索顺序来定位 DLL：
+（1）包含 EXE 文件的目录
+（2）工程目录
+（3）Windows 系统目录
+（4）Windows 目录
+（5）列在 Path 环境变量中的一系列目录</p>
 </div>
         </div>
-            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
             <script async type="text/javascript">
 /* From extension bierner.markdown-mermaid */
 /*! For license information please see index.bundle.js.LICENSE.txt */

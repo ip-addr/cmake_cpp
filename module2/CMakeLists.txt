@@ -1,11 +1,26 @@
+
+# | CMAKE_SOURCE_DIR | 当前 CMakeLists.txt 所在的源码目录的根路径 |
+# | CMAKE_BINARY_DIR | 构建目录的根路径，用于存放构建生成的可执行文件、库和其他输出 |
+# aux_source_directory
+
+
 # 定义模块2库
 add_library(module2_static STATIC module2.cpp module2.h) # 静态库 .lib
 
 # 设置该模块的公共头文件目录
 set(module2_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+# 设置输出文件名称
+set_target_properties(module2_static PROPERTIES
+    PREFIX "lib"
+    OUTPUT_NAME "module2_static_rename"
+)
 
 # 将模块2的头文件目录设置为PUBLIC，以便下游目标自动继承
 target_include_directories(module2_static PUBLIC ${module2_INCLUDE_DIR})
+
+ 
+
+
 
 # 若有内部依赖的其他源文件或库，在此处添加
 # ...

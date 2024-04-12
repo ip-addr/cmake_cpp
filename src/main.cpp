@@ -1,20 +1,16 @@
 //////////////////////// demo1
- #include <iostream>
- #include "module1.h"
- #include "fun1.h"
- #include "fun2.h"
 
+ #include "main.h"
 
-
-
-
+ 
 int main()
 {
-    int a =1;
+    char a[100];
     module1_fun();
+    module2_fun();
 
-    scanf("%d",&a);
-    std::cout << "input a value is: " << a << std::endl;
+    scanf("%s",a);
+    std::cout << "input a str is: " << a << std::endl;
     std::cout << "Hello, main====runing" << std::endl;
 
         fun1();

@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>cmake&#x9884;&#x8bbe;&#x53d8;&#x91cf;</title>
+            <title>&#x6587;&#x4ef6;&#x7c7b;&#x578b;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -2814,8 +2814,7 @@ body,
 }
 
 </style>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+            
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -2944,299 +2943,59 @@ body,
             <div class="github-markdown-content"><span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <p>CMake 中有多个预定义变量用来指示项目的不同目录结构和构建相关的路径，这里是一些常见的预定义变量及其含义：</p>
-<h1 id="cmake%E9%A2%84%E8%AE%BE%E5%8F%98%E9%87%8F">cmake预设变量</h1>
-<h2 id="%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E8%A1%A8%E6%A0%BC">预定义变量表格</h2>
-<table>
-<thead>
-<tr>
-<th>CMake 变量名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CMAKE_SOURCE_DIR</td>
-<td>当前 CMakeLists.txt 所在的源码目录的根路径</td>
-</tr>
-<tr>
-<td>CMAKE_BINARY_DIR</td>
-<td>构建目录的根路径，用于存放构建生成的可执行文件、库和其他输出</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_SOURCE_DIR</td>
-<td>当前处理的 CMakeLists.txt 所在的源码目录路径</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_BINARY_DIR</td>
-<td>当前处理的 CMakeLists.txt 所在的构建目录路径</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_LIST_DIR</td>
-<td>当前处理的 CMakeLists.txt 文件的实际目录路径（源码或构建）</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_LIST_LINE</td>
-<td>当前正在处理的 CMakeLists.txt 文件中的行号</td>
-</tr>
-<tr>
-<td>CMAKE_MODULE_PATH</td>
-<td>用于查找额外 CMake 模块（.cmake 文件）的搜索路径列表</td>
-</tr>
-<tr>
-<td>CMAKE_INCLUDE_CURRENT_DIR</td>
-<td>若设为 ON，将在构建时自动将当前 CMakeLists.txt 目录添加到包含路径中</td>
-</tr>
-<tr>
-<td>CMAKE_LIBRARY_OUTPUT_DIRECTORY</td>
-<td>库文件的输出目录</td>
-</tr>
-<tr>
-<td>CMAKE_RUNTIME_OUTPUT_DIRECTORY</td>
-<td>可执行文件的输出目录</td>
-</tr>
-</tbody>
-</table>
-<h2 id="%E9%A2%84%E8%AE%BE%E5%8F%98%E9%87%8F%E8%AF%A6%E8%A7%A3">预设变量详解</h2>
+                <h1 id="%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B">文件类型</h1>
+<p>在C或C++编程中，构建后的文件类型如.dll, .lib, .dll.a, .a，以及不带扩展名的.file（假设此处指的是没有指定扩展名的文件，通常不会直接出现这种形式），各自具有不同的用途和特点。下面分别对这些文件进行说明：</p>
 <ol>
+<li>.dll (Dynamic Link Library)
+动态链接库，用于Windows平台。dll文件包含了可执行代码和数据，可以在运行时被多个进程共享。当一个应用程序链接到一个.dll时，它并不将.dll中的代码和数据嵌入到自身可执行文件中，而是仅包含指向.dll中函数和资源的引用。这种设计使得：</li>
+</ol>
+<p>减小程序体积：因为多个应用程序可以共享同一份.dll，而不是各自复制相同的代码和数据。
+便于升级和维护：更新.dll即可影响所有依赖它的应用程序，无需重新编译它们。
+资源共享：多个进程可以同时访问同一份.dll中的数据，实现数据共享或进程间通信。
+2. .lib (Library)
+库文件，在Windows平台下有多种含义：</p>
+<p>静态库：当.lib文件作为静态链接库时，它包含了编译后的对象文件（.obj）的集合，这些对象文件在链接阶段会被完整地合并到依赖它的可执行文件中。静态链接意味着应用程序在编译后不再依赖外部的.dll文件，可以直接运行。静态库的优点包括：</p>
+<p>独立性：部署简单，无需额外分发.dll文件。
+稳定性：不受系统中其他程序对相同库版本的影响。
+导入库：当.lib文件作为导入库时，它并不包含实际的实现代码，而是为链接器提供必要的信息来解析.dll文件中的导出符号（函数、变量等）。导入库与对应的.dll一起使用，允许应用程序在编译时链接到.dll的接口，但在运行时依赖.dll的存在。</p>
+<ol start="3">
 <li>
-<p><strong><code>CMAKE_CURRENT_SOURCE_DIR</code></strong></p>
-<ul>
-<li>它指定了当前正在处理的 CMakeLists.txt 文件所在的目录。当你在多级目录结构中使用 <code>add_subdirectory()</code> 时，这个变量会随着上下文切换而变化，总是指向当前 CMakeLists.txt 文件所在的路径。</li>
-</ul>
+<p>.dll.a (Archive of DLL Import Library)
+这是MinGW环境下（基于GCC的Windows移植版）对应于Windows .lib导入库的文件格式。它实质上也是为了支持链接到.dll而提供的辅助文件，但采用了GCC常用的.a（归档文件）格式。与.lib导入库类似，.dll.a文件不包含实际的实现代码，而是帮助链接器处理对.dll的依赖。</p>
 </li>
 <li>
-<p><strong><code>PROJECT_SOURCE_DIR</code></strong></p>
-<ul>
-<li>这个变量代表了项目的顶层（根）源代码目录，即包含初始 <code>project()</code> 命令的那个 CMakeLists.txt 文件所在的目录。</li>
-</ul>
+<p>.a (Static Library Archive)
+静态库归档文件，广泛用于Unix-like系统（如Linux、macOS等），相当于Windows平台下的.lib静态库。.a文件是一个包含已编译对象文件（.o）的归档（archive），在链接阶段，链接器会从.a文件中提取所需的对象文件并将其合并到最终的可执行文件中。其特性与Windows静态库.lib相同。</p>
 </li>
 <li>
-<p><strong><code>CMAKE_CURRENT_BINARY_DIR</code></strong></p>
-<ul>
-<li>表示当前 CMakeLists.txt 文件对应的构建目录，在构建过程中，这里的路径是指构建时产生的中间文件和目标文件的存放位置。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>PROJECT_BINARY_DIR</code></strong></p>
-<ul>
-<li>同样代表项目顶层的构建目录，也就是在项目根目录下执行 <code>cmake</code> 时生成的构建文件的父目录，通常相对于 <code>PROJECT_SOURCE_DIR</code>，它是一个独立的 <code>build</code> 目录。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_BINARY_DIR</code></strong></p>
-<ul>
-<li>在单个顶级 CMake 构建中，<code>CMAKE_BINARY_DIR</code> 等同于 <code>PROJECT_BINARY_DIR</code>，但在多级构建配置中，它指的是最外层或“顶级”构建目录。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_SOURCE_DIR</code></strong></p>
-<ul>
-<li>这个变量类似于 <code>PROJECT_SOURCE_DIR</code>，不过在多目录外部项目（ExternalProject）中可能有所不同，一般情况下两者相同，都指向项目根目录。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_MODULE_PATH</code></strong></p>
-<ul>
-<li>用于搜索 CMake 模块的额外路径列表。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_CURRENT_LIST_DIR</code></strong></p>
-<ul>
-<li>表示当前正在处理的 CMakeLists.txt 或 CMake 模块文件的实际物理路径。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>CMAKE_CURRENT_LIST_FILE</code></strong></p>
-<ul>
-<li>包含当前正在执行的 CMakeLists.txt 或 CMake 模块文件的完整路径。</li>
-</ul>
+<p>.file (Assuming Unspecified File Extension)
+不带扩展名的.file在实际编程环境中并不常见。通常，文件名应包含适当的扩展名以标识其类型和用途。若在特定上下文中确实指代某种特定类型的文件，则需根据上下文具体解释。若只是指代一个通用的文件名，则无特别的编程意义，需要查看文件内容或查阅相关文档来确定其作用。</p>
 </li>
 </ol>
-<h2 id="%E5%85%B6%E4%BB%96%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F">其他预定义变量：</h2>
-<ul>
-<li>
-<p><code>CMAKE_GENERATOR</code></p>
-<ul>
-<li>当前使用的构建工具链（如 &quot;Unix Makefiles&quot;、&quot;MinGW Makefiles&quot;、&quot;Ninja&quot; 等）。</li>
-</ul>
-</li>
-<li>
-<p><code>CMAKE_BUILD_TYPE</code></p>
-<ul>
-<li>指定构建类型（如 &quot;Debug&quot;、&quot;Release&quot; 等）。</li>
-</ul>
-</li>
-<li>
-<p><code>CMAKE_&lt;LANG&gt;_COMPILER</code></p>
-<ul>
-<li>指定用于特定语言（如 C、CXX）的编译器路径。</li>
-</ul>
-</li>
-<li>
-<p><code>CMAKE_SYSTEM_NAME</code>, <code>CMAKE_SYSTEM_VERSION</code>, <code>CMAKE_SYSTEM_PROCESSOR</code></p>
-<ul>
-<li>描述目标系统的名称、版本和处理器架构。</li>
-</ul>
-</li>
-</ul>
-<p>以上这些变量在CMake中都是全局可用的，可以帮助开发者灵活地处理不同层级的目录结构、构建选项以及系统相关的配置信息。此外，还有许多其他的预定义变量，具体可查阅CMake官方文档以获取完整列表及最新说明。</p>
-<h2 id="%E8%AE%BE%E7%BD%AEcmake%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F-set">设置CMAKE预定义变量 <code>set()</code></h2>
-<h3 id="%E8%AE%BE%E7%BD%AE-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA">设置 项目构建</h3>
-<ul>
-<li>if(WIN32) set(CMAKE_GNUtoMS ON) endif(WIN32) # 如果是window平台,</li>
-<li>set(CMAKE_BUILD_RPATH &quot;${CMAKE_SOURCE_DIR}/build&quot; ) 构建目录 ./build</li>
-<li>set(CMAKE_BUILD_TYPE Debug)</li>
-</ul>
-<hr>
-<h3 id="%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9-%E7%BC%96%E8%AF%91%E9%93%BE-%E7%BC%96%E8%AF%91%E5%99%A8">设置编译选项 编译链 编译器</h3>
-<ul>
-<li>set(CMAKE_CXX_STANDARD 11)</li>
-<li>set(CMAKE_CXX_STANDARD_REQUIRED True)</li>
-<li>set(CMAKE_C_COMPILER &quot;gcc&quot;)</li>
-<li>set(CMAKE_CXX_COMPILER &quot;g++&quot;)</li>
-</ul>
-<hr>
-<h2 id="%E8%AE%BE%E7%BD%AE-%E9%A1%B9%E7%9B%AE%E8%BE%93%E5%87%BA">设置 项目输出</h2>
-<ul>
-<li>set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)</li>
-<li>set(CMAKE_LIBRARY_OUTPUT_DIRECTORY)</li>
-<li>set(CMAKE_RUNTIME_OUTPUT_DIRECTORY)</li>
-</ul>
-<h1 id="%E6%B7%BB%E5%8A%A0%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9">添加编译选项</h1>
-<h2 id="addcompileoptions"><code>add_compile_options</code></h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">add_compile_options</span>(-Wall -Wextra -pedantic   ) 
-</code></pre>
-<h2 id="adddefinitions-ddebug--dmydefine-%E6%B7%BB%E5%8A%A0%E5%AE%8F%E5%AE%9A%E4%B9%89"><code>add_definitions(-DDEBUG -DMYDEFINE)</code> 添加宏定义</h2>
-<h1 id="%E6%90%9C%E5%AF%BB%E6%B7%BB%E5%8A%A0-%E6%BA%90%E6%96%87%E4%BB%B6-c-cpp-s">搜寻&amp;添加 <code>源文件 .c .cpp .s</code></h1>
-<h2 id="auxsourcedirectory"><code>aux_source_directory</code></h2>
-<ul>
-<li><code>aux_source_directory</code>:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。</li>
-</ul>
-<blockquote>
-<p>aux_source_directory(. MATH_SRC)</p>
-</blockquote>
-<h2 id="fileglob"><code>file(GLOB  )</code></h2>
-<ul>
-<li><code>file(GLOB  )</code>:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。</li>
-</ul>
-<blockquote>
-<p>file(GLOB MATH_SRC *.cpp)</p>
-</blockquote>
-<h1 id="%E6%90%9C%E7%B4%A2%E6%B7%BB%E5%8A%A0-%E5%A4%B4%E6%96%87%E4%BB%B6-h-hpp">搜索&amp;添加 <code>头文件 .h .hpp</code></h1>
-<h2 id="targetincludedirectories"><code>target_include_directories</code></h2>
-<ul>
-<li>target_include_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)</li>
-<li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
-</ul>
-<h2 id="targetlinkdirectories"><code>target_link_directories</code></h2>
-<ul>
-<li>target_link_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)</li>
-<li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
-</ul>
-<h2 id="includedirectories"><code>include_directories</code></h2>
-<ul>
-<li>添加头文件包含路径 全局</li>
-<li>include_directories(path1 path2 ...)</li>
-</ul>
-<h2 id="linkdirectories"><code>link_directories</code></h2>
-<ul>
-<li>添加头文件包含路径 全局</li>
-<li>link_directories(path1 path2 ...)</li>
-</ul>
-<h2 id="%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E6%98%AF">==需要注意的是==</h2>
-<ol>
-<li>尽量避免在 CMake 中使用 <code>include_directories</code> 和 <code>link_directories</code> 命令来处理第三方库的头文件和链接库路径。</li>
-<li>更好的做法是使用 <code>find_package</code> 命令或编写 <code>Find 模块</code>来查找和链接第三方库，这样可以更好地管理依赖关系和跨平台兼容性。</li>
-</ol>
-<h1 id="%E5%88%9B%E5%BB%BA%E6%9E%84%E5%BB%BA%E7%9B%AE%E6%A0%87">创建构建目标</h1>
-<h2 id="addlibrary-%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%BA%93"><code>add_library</code>  静态/动态/组件库</h2>
-<blockquote>
-<p>add_library(<name> [STATIC | SHARED | MODULE]
-[EXCLUDE_FROM_ALL]
-[<source>...])</p>
-</blockquote>
-<h2 id="addexecutable-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><code>add_executable</code> 可执行文件</h2>
-<blockquote>
-<p>add_executable(<name> [WIN32] [MACOSX_BUNDLE]
-[EXCLUDE_FROM_ALL]
-[source1] [source2 ...])</p>
-</blockquote>
-<h2 id="addsubdirectory-%E7%BA%B3%E5%85%A5%E5%AD%90cmake%E6%9E%84%E5%BB%BA%E9%85%8D%E7%BD%AE"><code>add_subdirectory</code> :纳入子CMake构建配置</h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">add_subdirectory</span>(source_dir 
-    [binary_dir] 
-    [EXCLUDE_FROM_ALL] 
-    [SYSTEM]
-)
-</code></pre>
-<ul>
-<li>
-<p><code>add_subdirectory( directory )</code> 用于将一个子目录及其内部的CMake构建配置纳入当前项目的构建过程。这个命令允许您组织大型项目为多个独立的子项目或模块，每个子项目都有自己的CMakeLists.txt文件，它们共同构成整个项目的构建规则。</p>
-</li>
-<li>
-<p><code>source_dir</code>：必填参数，指定包含子目录CMakeLists.txt文件的路径。可以是相对路径（相对于当前CMakeLists.txt文件所在目录）或绝对路径。CMake将递归地处理指定目录下的CMakeLists.txt文件，构建该子目录内的目标。</p>
-</li>
-<li>
-<p><code>binary_dir</code>：可选参数，指定子目录构建产物（如编译后的对象文件、库文件和可执行文件）存放的目录。如果未指定，CMake将默认在当前构建目录下创建一个与source_dir同名的子目录作为binary_dir。如果提供的是相对路径，它将相对于当前构建目录计算。</p>
-</li>
-<li>
-<p><code>EXCLUDE_FROM_ALL</code>：可选布尔标记，如果设置，该子目录中的目标将不会被默认构建。用户必须明确指定这些目标才能进行构建。这对于包含可选组件、测试套件或示例代码等的子目录非常有用，可以避免不必要的构建开销。</p>
-</li>
-</ul>
-<h2 id="targetlinklibraries"><code>target_link_libraries</code></h2>
-<pre><code class="language-cmake"> <span class="hljs-keyword">target_link_libraries</span>(&lt;<span class="hljs-keyword">target</span>&gt;
-    &lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;items&gt;...
-    [&lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;items&gt;...]...
-    [LINK_INTERFACE_LIBRARIES &lt;items&gt;...]
-    [LINK_PRIVATE &lt;items&gt;...]
-    [LINK_PUBLIC &lt;items&gt;...]
-    [LINK_INTERFACE_MULTIPLICITY &lt;library&gt; &lt;count&gt;...]
-)
-</code></pre>
-<ul>
-<li>负责将库文件、其他目标（如静态库或共享库）以及链接标志与给定的目标（通常是可执行文件或库）关联起来。</li>
-<li>可以清晰地定义项目中各个组成部分之间的依赖关系，确保编译器在构建目标时能正确链接所需的库文件。</li>
-</ul>
-<h1 id="%E8%AE%BE%E7%BD%AE%E7%9B%AE%E6%A0%87%E5%B1%9E%E6%80%A7">设置目标属性</h1>
-<h2 id="settargetproperties%E8%AE%BE%E7%BD%AE%E7%9A%84%E5%B1%9E%E6%80%A7"><code>set_target_properties</code>设置的属性</h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">set_target_properties</span>(<span class="hljs-variable">${module_name}</span>    PROPERTIES
-    property1 value1
-    property2 value2
-    .....
-)
-<span class="hljs-keyword">set_target_properties</span>(my_target PROPERTIES COMPILE_DEFINITIONS MY_DEFINITION=<span class="hljs-keyword">ON</span>)
-</code></pre>
-<h2 id="setproperty"><code>set_property</code></h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">set_property</span>(
-    [GLOBAL | DIRECTORY | <span class="hljs-keyword">TARGET</span> &lt;<span class="hljs-keyword">target</span>-name&gt; |
-     SOURCE &lt;source-<span class="hljs-keyword">file</span>&gt; | <span class="hljs-keyword">TEST</span> &lt;<span class="hljs-keyword">test</span>-name&gt; |
-     <span class="hljs-keyword">INSTALL</span> &lt;<span class="hljs-keyword">install</span>-<span class="hljs-keyword">target</span>&gt; | CACHE | ENVIRONMENT]
-    PROPERTY &lt;property-name&gt; [value1 [value2 ...]]
-)
-<span class="hljs-keyword">set_property</span>(<span class="hljs-keyword">TARGET</span> my_target PROPERTY COMPILE_DEFINITIONS MY_DEFINITION=<span class="hljs-keyword">ON</span>)
-</code></pre>
-<ul>
-<li><code>set_target_properties</code> 语法更紧凑</li>
-<li><code>sett_property</code> 作用范围更丰富</li>
-</ul>
-<h2 id="properties">==<code>PROPERTIES</code>==</h2>
-<ul>
-<li>OUTPUT_NAME 输出文件名字</li>
-<li>PREFIX      输出文件前缀</li>
-<li></li>
-</ul>
-<hr>
-<ul>
-<li>ARCHIVE_OUTPUT_DIRECTORY 输出导入库路径  dll.a</li>
-<li>LIBRARY_OUTPUT_DIRECTORY 输出库文件库路径 .a .lib</li>
-<li>RUNTIME_OUTPUT_DIRECTORY 输出可执行文件路径 .exe .dll</li>
-</ul>
-<h1 id="%E5%AF%BC%E5%85%A5%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6">导入静态/动态库文件</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/373363335">https://zhuanlan.zhihu.com/p/373363335</a></p>
+<p>总结：</p>
+<p>.dll：Windows平台的动态链接库，供多个应用程序在运行时共享。
+.lib（静态库）：Windows平台的静态链接库，编译时将其内容完整嵌入到可执行文件中。
+.lib（导入库）：Windows平台的导入库，辅助链接到对应的.dll，不包含实现代码。
+.dll.a：MinGW环境下用于链接到.dll的归档文件，功能与.lib导入库相同。
+.a：Unix-like系统下的静态库归档文件，与Windows静态库.lib作用相似。
+正确理解和使用这些文件对于构建、链接和部署C或C++程序至关重要。选择静态库还是动态库，通常取决于对程序大小、部署便利性、更新灵活性、跨平台兼容性等因素的权衡。</p>
+<h1 id="cmake-output-file-type">cmake output file type</h1>
+<h2 id="cmake-installtargets">cmake install(TARGETS ...)</h2>
+<p><code>cmake install</code>命令中的 LIBRARY、ARCHIVE、RUNTIME 分别对应库文件的不同输出类型，具体说明如下：</p>
+<p><code>LIBRARY</code>: 用于指定动态库（也称为共享库或DLL）。在不同平台上，动态库的具体扩展名可能不同，常见的包括：</p>
+<p>Unix/Linux: .so（如 libmodule1_shared.so）
+macOS: .dylib（如 libmodule1_shared.dylib）
+Windows: .dll（如 module1_shared.dll）
+动态库在运行时被加载到内存，允许多个进程共享同一份代码，有助于节省磁盘空间和内存资源。</p>
+<p><code>ARCHIVE</code>: 用于指定静态库。静态库通常包含编译后的对象文件，被打包成一个文件以便于管理。静态库的扩展名一般为：</p>
+<p>Unix/Linux/macOS: .a（如 libmodule1_shared.a）
+Windows: .lib（如 module1_shared.lib）
+静态库在链接阶段被完全复制到目标可执行文件中，使得生成的程序无需依赖外部库文件即可运行。缺点是生成的可执行文件较大，且无法实现代码共享。</p>
+<p><code>RUNTIME</code>: 用于指定可执行文件或依赖的动态库运行时组件（如 Windows 上的 DLL 导出清单文件 .dll.a 或 .lib）。这通常适用于跨平台项目中，某些平台上的库可能同时包含可执行文件或额外的运行时支持文件。对于纯库项目，如您所描述的 module1_shared，通常不需要考虑此选项。</p>
+<p>在您的例子中，由于 module1_shared 是一个动态库（使用 SHARED 关键字创建），您通常只需要关注 LIBRARY 类型。若您的项目同时生成静态库版本，那么还需要考虑 ARCHIVE 类型。RUNTIME 类型在当前情况下通常不需要指定。根据您的实际需求和库的构建方式，选择对应的输出类型进行安装即可。</p>
 </div>
         </div>
-            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
             <script async type="text/javascript">
 /* From extension bierner.markdown-mermaid */
 /*! For license information please see index.bundle.js.LICENSE.txt */

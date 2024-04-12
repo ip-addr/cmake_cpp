@@ -1,1 +1,1 @@
- J:/workplace/cmake_cpp/Debug/static/libmodule1_shared.dll.a J:/workplace/cmake_cpp/Debug/static/libmodule2_static.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ J:/workplace/cmake_cpp/Debug/module1_shared_arch/libmodule1_shared_rename.dll.a J:/workplace/cmake_cpp/Debug/module2_static_arch/libmodule2_static_rename.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
