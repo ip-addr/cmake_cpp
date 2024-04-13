@@ -85,14 +85,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "module1_shared::@7b43c4801f818007b112",
-					"jsonFile" : "target-module1_shared-Debug-a3ba000df2c7da07c69c.json",
+					"jsonFile" : "target-module1_shared-Debug-d81b196675732ec51022.json",
 					"name" : "module1_shared",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "module2_static::@bf6db2ce7a83d35d5172",
-					"jsonFile" : "target-module2_static-Debug-f16067ebdc2a0b0fac1e.json",
+					"jsonFile" : "target-module2_static-Debug-b07fdc493a474059d979.json",
 					"name" : "module2_static",
 					"projectIndex" : 0
 				}

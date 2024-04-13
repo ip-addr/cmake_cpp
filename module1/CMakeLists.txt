@@ -3,24 +3,23 @@
 include("${CMAKE_SOURCE_DIR}/myfun.cmake")
 
 # macro(submodule_task) ##子cmake对变量操作,需要加上PARENT_SCOPE 才会传递给其他cmakelist!
-    find_header_directories( ${CMAKE_CURRENT_SOURCE_DIR}  HEADER_DIRECTORIES)
-    message("222头文件路径 : ${HEADER_DIRECTORIES}")
-
+    
     set(SOURCE_FILES "")
     aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}  SOURCE_FILES)
+
+    find_header_directories( ${CMAKE_CURRENT_SOURCE_DIR}  HEADER_DIRECTORIES)
+    message("222头文件路径 : ${HEADER_DIRECTORIES}")
     message("222源文件路径 : ${SOURCE_FILES}")
+
     add_library(module1_shared SHARED ${SOURCE_FILES}) # 库类型 dll目标
 
 
-    # 设置该模块的公共头文件目录
-    set(module1_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-    # 设置库名称
     set_target_properties(module1_shared PROPERTIES 
         PREFIX "lib"
-        OUTPUT_NAME "module1_shared_rename"
+        OUTPUT_NAME "module1_shared_rename"     # 设置库名称
     ) 
     # 将模块1的头文件目录设置为PUBLIC，以便下游目标自动继承
-    target_include_directories(module1_shared PUBLIC ${module1_INCLUDE_DIR})
+    target_include_directories(module1_shared PUBLIC ${HEADER_DIRECTORIES})
 # endmacro()
  
 # 调用宏执行子模块任务
