@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>cmake&#x9884;&#x8bbe;&#x53d8;&#x91cf;</title>
+            <title>cmake&#x53d8;&#x91cf;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -2944,8 +2944,15 @@ body,
             <div class="github-markdown-content"><span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <p>CMake 中有多个预定义变量用来指示项目的不同目录结构和构建相关的路径，这里是一些常见的预定义变量及其含义：</p>
+                <h1 id="cmake%E5%8F%98%E9%87%8F">cmake变量</h1>
+<h2 id="%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F">变量作用域</h2>
+<ul>
+<li>子cmake对变量操作,需要加上PARENT_SCOPE 才会传递给其他cmakelist!</li>
+<li>函数function中,需要加上RETURN_VALUE 才会传递给函数外部cmakelist!</li>
+<li>==没有RETURN_VALUE,<code>function</code>/<code>子cmakelist</code>中变量只作用于内部,或者被其他父级重名变量覆盖,不会传递给外部cmakelist!==</li>
+</ul>
 <h1 id="cmake%E9%A2%84%E8%AE%BE%E5%8F%98%E9%87%8F">cmake预设变量</h1>
+<p>CMake 中有多个预定义变量用来指示项目的不同目录结构和构建相关的路径，这里是一些常见的预定义变量及其含义：</p>
 <h2 id="%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E8%A1%A8%E6%A0%BC">预定义变量表格</h2>
 <table>
 <thead>
@@ -3075,13 +3082,10 @@ body,
 </ul>
 </li>
 <li>
-<p><code>CMAKE_SYSTEM_NAME</code>, <code>CMAKE_SYSTEM_VERSION</code>, <code>CMAKE_SYSTEM_PROCESSOR</code></p>
-<ul>
-<li>描述目标系统的名称、版本和处理器架构。</li>
-</ul>
+<p>等等等等.......
+以上这些变量在CMake中都是全局可用的，可以帮助开发者灵活地处理不同层级的目录结构、构建选项以及系统相关的配置信息。此外，还有许多其他的预定义变量，具体可查阅CMake官方文档以获取完整列表及最新说明。</p>
 </li>
 </ul>
-<p>以上这些变量在CMake中都是全局可用的，可以帮助开发者灵活地处理不同层级的目录结构、构建选项以及系统相关的配置信息。此外，还有许多其他的预定义变量，具体可查阅CMake官方文档以获取完整列表及最新说明。</p>
 <h2 id="%E8%AE%BE%E7%BD%AEcmake%E9%A2%84%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F-set">设置CMAKE预定义变量 <code>set()</code></h2>
 <h3 id="%E8%AE%BE%E7%BD%AE-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA">设置 项目构建</h3>
 <pre><code class="language-cmake"><span class="hljs-keyword">if</span>(WIN32) 
@@ -3099,9 +3103,9 @@ body,
 </code></pre>
 <hr>
 <h2 id="%E8%AE%BE%E7%BD%AE-%E9%A1%B9%E7%9B%AE%E8%BE%93%E5%87%BA">设置 项目输出</h2>
-<pre><code class="language-cmake"><span class="hljs-keyword">set</span>(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)
-<span class="hljs-keyword">set</span>(CMAKE_LIBRARY_OUTPUT_DIRECTORY)
-<span class="hljs-keyword">set</span>(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+<pre><code class="language-cmake"><span class="hljs-keyword">set</span>(CMAKE_ARCHIVE_OUTPUT_DIRECTORY dir1)
+<span class="hljs-keyword">set</span>(CMAKE_LIBRARY_OUTPUT_DIRECTORY dir2)
+<span class="hljs-keyword">set</span>(CMAKE_RUNTIME_OUTPUT_DIRECTORY dir3)
 </code></pre>
 <h1 id="%E6%B7%BB%E5%8A%A0%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9">添加编译选项</h1>
 <h2 id="addcompileoptions"><code>add_compile_options</code></h2>
@@ -3115,35 +3119,41 @@ body,
 <li><code>aux_source_directory</code>:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。</li>
 </ul>
 <blockquote>
-<p>aux_source_directory(. MATH_SRC)</p>
+<p>aux_source_directory(your_directory FindSrcDir)</p>
 </blockquote>
-<h2 id="fileglob"><code>file(GLOB  )</code></h2>
+<h2 id="fileglobglobrecurse"><code>file(GLOB/GLOB_RECURSE  )</code>/</h2>
+<blockquote>
+<p>file(GLOB/GLOB_RECURSE  <path-to-search> <variable>)</p>
+</blockquote>
 <ul>
-<li><code>file(GLOB  )</code>:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。</li>
+<li><code>file(GLOB/GLOB_RECURSE  )</code>:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。</li>
 </ul>
 <blockquote>
-<p>file(GLOB MATH_SRC *.cpp)</p>
+<p>file(GLOB FindSrcDir *.cpp)
+file(GLOB_RECURSE FindSrcDir *.cpp) #递归查找</p>
 </blockquote>
-<h1 id="%E6%90%9C%E7%B4%A2%E6%B7%BB%E5%8A%A0-%E5%A4%B4%E6%96%87%E4%BB%B6-h-hpp">搜索&amp;添加 <code>头文件 .h .hpp</code></h1>
-<h2 id="targetincludedirectories"><code>target_include_directories</code></h2>
+<h1 id="%E6%B7%BB%E5%8A%A0-%E5%A4%B4%E6%96%87%E4%BB%B6-h-hpp">添加 <code>头文件 .h .hpp</code></h1>
+<h2 id="targetincludedirectories-%E7%9B%AE%E6%A0%87%E5%B1%80%E9%83%A8%E4%BD%9C%E7%94%A8"><code>target_include_directories</code>  目标局部作用</h2>
 <ul>
+<li>可选作用域</li>
 <li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
 </ul>
 <pre><code class="language-cmake"><span class="hljs-keyword">target_include_directories</span>(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
 </code></pre>
-<h2 id="targetlinkdirectories"><code>target_link_directories</code></h2>
-<ul>
-<li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
-</ul>
-<pre><code class="language-cmake"><span class="hljs-keyword">target_link_directories</span>(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
-</code></pre>
-<h2 id="includedirectories"><code>include_directories</code></h2>
+<h2 id="includedirectories-%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8"><code>include_directories</code>  全局作用</h2>
 <ul>
 <li>添加头文件包含路径 全局</li>
 </ul>
 <pre><code class="language-cmake"><span class="hljs-keyword">include_directories</span>(path1 path2 ...)
 </code></pre>
-<h2 id="linkdirectories"><code>link_directories</code></h2>
+<h1 id="%E6%90%9C%E7%B4%A2%E6%B7%BB%E5%8A%A0-%E5%BA%93%E6%96%87%E4%BB%B6-a-so-dll-lib">搜索&amp;添加 <code>库文件 .a .so .dll .lib</code></h1>
+<h2 id="targetlinkdirectories-%E5%BA%93%E6%96%87%E4%BB%B6"><code>target_link_directories</code> 库文件</h2>
+<ul>
+<li>这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。</li>
+</ul>
+<pre><code class="language-cmake"><span class="hljs-keyword">target_link_directories</span>(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
+</code></pre>
+<h2 id="linkdirectories-%E5%BA%93%E6%96%87%E4%BB%B6"><code>link_directories</code>  库文件</h2>
 <ul>
 <li>添加头文件包含路径 全局</li>
 </ul>
@@ -3186,20 +3196,6 @@ body,
 <p><code>EXCLUDE_FROM_ALL</code>：可选布尔标记，如果设置，该子目录中的目标将不会被默认构建。用户必须明确指定这些目标才能进行构建。这对于包含可选组件、测试套件或示例代码等的子目录非常有用，可以避免不必要的构建开销。</p>
 </li>
 </ul>
-<h2 id="targetlinklibraries"><code>target_link_libraries</code></h2>
-<pre><code class="language-cmake"> <span class="hljs-keyword">target_link_libraries</span>(&lt;<span class="hljs-keyword">target</span>&gt;
-    &lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;items&gt;...
-    [&lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;items&gt;...]...
-    [LINK_INTERFACE_LIBRARIES &lt;items&gt;...]
-    [LINK_PRIVATE &lt;items&gt;...]
-    [LINK_PUBLIC &lt;items&gt;...]
-    [LINK_INTERFACE_MULTIPLICITY &lt;library&gt; &lt;count&gt;...]
-)
-</code></pre>
-<ul>
-<li>负责将库文件、其他目标（如静态库或共享库）以及链接标志与给定的目标（通常是可执行文件或库）关联起来。</li>
-<li>可以清晰地定义项目中各个组成部分之间的依赖关系，确保编译器在构建目标时能正确链接所需的库文件。</li>
-</ul>
 <h1 id="%E8%AE%BE%E7%BD%AE%E7%9B%AE%E6%A0%87%E5%B1%9E%E6%80%A7">设置目标属性</h1>
 <h2 id="settargetproperties%E8%AE%BE%E7%BD%AE%E7%9A%84%E5%B1%9E%E6%80%A7"><code>set_target_properties</code>设置的属性</h2>
 <pre><code class="language-cmake"><span class="hljs-keyword">set_target_properties</span>(<span class="hljs-variable">${module_name}</span>    PROPERTIES
@@ -3233,10 +3229,25 @@ body,
 <li>ARCHIVE_OUTPUT_DIRECTORY 输出导入库路径  dll.a</li>
 <li>LIBRARY_OUTPUT_DIRECTORY 输出库文件库路径 .a .lib</li>
 <li>RUNTIME_OUTPUT_DIRECTORY 输出可执行文件路径 .exe .dll</li>
+<li>等等等等.......</li>
 </ul>
 <h1 id="%E5%AF%BC%E5%85%A5%E9%9D%99%E6%80%81%E5%8A%A8%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6">导入静态/动态库文件</h1>
 <p><a href="https://zhuanlan.zhihu.com/p/373363335">https://zhuanlan.zhihu.com/p/373363335</a></p>
-<h2 id="targetlinkoptions">target_link_options</h2>
+<h2 id="targetlinklibraries"><code>target_link_libraries</code></h2>
+<pre><code class="language-cmake"> <span class="hljs-keyword">target_link_libraries</span>(&lt;<span class="hljs-keyword">target</span>&gt;
+    &lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;items&gt;...
+    [&lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;items&gt;...]...
+    [LINK_INTERFACE_LIBRARIES &lt;items&gt;...]
+    [LINK_PRIVATE &lt;items&gt;...]
+    [LINK_PUBLIC &lt;items&gt;...]
+    [LINK_INTERFACE_MULTIPLICITY &lt;library&gt; &lt;count&gt;...]
+)
+</code></pre>
+<ul>
+<li>负责将库文件、其他目标（如静态库或共享库）以及链接标志与给定的目标（通常是可执行文件或库）关联起来。</li>
+<li>可以清晰地定义项目中各个组成部分之间的依赖关系，确保编译器在构建目标时能正确链接所需的库文件。</li>
+</ul>
+<h2 id="targetlinkoptions"><code>target_link_options</code></h2>
 <p>Add options to the link step for an executable, shared library or module</p>
 <ul>
 <li>添加执选项到目标可执行文件、共享库或模块的链接阶段。
@@ -3248,6 +3259,40 @@ library target.</li>
 </code></pre>
 <h1 id="cmake%E6%9E%84%E5%BB%BA%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B">cmake构建主要流程</h1>
 <p><a href="https://zhuanlan.zhihu.com/p/371257515">https://zhuanlan.zhihu.com/p/371257515</a></p>
+<h1 id="cmake%E7%9A%84%E4%BD%BF%E7%94%A8"><code>.cmake</code>的使用</h1>
+<h2 id="include"><code>include()</code></h2>
+<p>==.cmake的使用需要<code>include(path_to_your_.cmake_directory)</code>==</p>
+<h2 id="%E7%94%A8%E6%B3%951%E5%B0%81%E8%A3%85%E5%87%BD%E6%95%B0">用法1.封装函数</h2>
+<p>例如</p>
+<pre><code class="language-cmake"><span class="hljs-comment">## 查找该目录下所有头文件所在的目录,并返回头文件列表</span>
+<span class="hljs-keyword">function</span>(find_header_directories PARENT_DIRECTORY HEADER_DIRECTORIES_OUT)
+    <span class="hljs-keyword">set</span>(HEADER_DIRECTORIES <span class="hljs-string">&quot;&quot;</span>)
+    
+    <span class="hljs-comment"># 使用GLOB_RECURSE查找父目录及其子目录下的.h和.hpp文件</span>
+    <span class="hljs-keyword">file</span>(GLOB_RECURSE HEADER_FILES
+        <span class="hljs-string">&quot;${PARENT_DIRECTORY}/*.h&quot;</span>
+        <span class="hljs-string">&quot;${PARENT_DIRECTORY}/*.hpp&quot;</span>
+    )
+
+    <span class="hljs-keyword">foreach</span>(HEADER_FILE <span class="hljs-variable">${HEADER_FILES}</span>)
+        <span class="hljs-comment"># 获取包含当前头文件的目录路径</span>
+        <span class="hljs-keyword">get_filename_component</span>(DIRECTORY_PATH <span class="hljs-variable">${HEADER_FILE}</span> DIRECTORY)
+
+        <span class="hljs-comment"># 添加目录到HEADER_DIRECTORIES列表</span>
+        <span class="hljs-keyword">list</span>(APPEND HEADER_DIRECTORIES <span class="hljs-variable">${DIRECTORY_PATH}</span>)
+    <span class="hljs-keyword">endforeach</span>()
+
+    <span class="hljs-comment"># 移除列表中的重复目录</span>
+    <span class="hljs-keyword">list</span>(REMOVE_DUPLICATES HEADER_DIRECTORIES)
+    <span class="hljs-keyword">set</span>(<span class="hljs-variable">${HEADER_DIRECTORIES_OUT}</span> <span class="hljs-variable">${HEADER_DIRECTORIES}</span> PARENT_SCOPE)
+    <span class="hljs-comment"># set(${HEADER_DIRECTORIES_OUT} ${HEADER_DIRECTORIES}  )</span>
+    <span class="hljs-comment"># 将结果赋值给OUT_HEAR_DIRS参数，供父级CMake脚本使用 </span>
+    <span class="hljs-comment"># 必要的,不然这些变量只作用于函数内部,或者被其他重名变量覆盖</span>
+<span class="hljs-keyword">endfunction</span>()
+</code></pre>
+<h2 id="%E7%94%A8%E6%B3%952%E5%B0%81%E8%A3%85%E5%8F%98%E9%87%8F">用法2.封装变量</h2>
+<h2 id="%E7%94%A8%E6%B3%953%E5%B0%81%E8%A3%85%E5%AE%8F">用法3.封装宏</h2>
+<h2 id="%E7%94%A8%E6%B3%954%E5%B0%81%E8%A3%85%E8%84%9A%E6%9C%AC%E6%A8%A1%E5%9D%97">用法4.封装脚本模块</h2>
 </div>
         </div>
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>

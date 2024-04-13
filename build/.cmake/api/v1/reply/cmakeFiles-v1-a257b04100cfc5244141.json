@@ -154,6 +154,9 @@
 			"path" : "module1/CMakeLists.txt"
 		},
 		{
+			"path" : "myfun.cmake"
+		},
+		{
 			"path" : "module2/CMakeLists.txt"
 		}
 	],

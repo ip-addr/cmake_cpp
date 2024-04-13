@@ -2,5 +2,5 @@
 
 void module2_fun()
 {
-    std::cout << "Hello, fun3====runing" << std::endl;
+    std::cout << "Hello, module2" << std::endl;
 }

@@ -54,33 +54,7 @@ set(CMAKE_CXX_COMPILER "g++")
 add_compile_options(-Wall -Wextra -pedantic   ) 
 
  
-#################################################
-## 添加所有源代码文件
-file(GLOB SOURCE_FILES 
-    "${CMAKE_SOURCE_DIR}/inc/*.c"
-    "${CMAKE_SOURCE_DIR}/src/*.cpp"
-)
-message("源文件路径 : ${SOURCE_FILES}")
-
-
-
-#################################################
-## 添加可执行文件目标
-add_executable(${target_main_exe} ${SOURCE_FILES}) # 添加输出的目标可执行文件
-target_include_directories(${target_main_exe} PUBLIC   # 添加 头文件路径
-    ${CMAKE_SOURCE_DIR}/inc
-)
-set_target_properties(${target_main_exe}  PROPERTIES 
-    OUTPUT_NAME "main" 
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Debug/libs" 
-    # CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ""
-)
-set(lib_PATHS "${CMAKE_SOURCE_DIR}/Debug/libs")
-target_link_options(${target_main_exe} PRIVATE "-Wl,-rpath=${lib_PATHS}") #添加执行调试的 静态动态库路径
-
-
-
-
+ 
 #################################################
 ## 添加子模块, 第三方库函数
 set(MODULE_PATHS        # 定义一个变量来存储子模块路径列表
@@ -105,9 +79,55 @@ foreach(module_name IN LISTS MODULE_LIBRARIES) # 设置动态/静态库文件的
 )
 endforeach()
 
-foreach(module_name IN LISTS MODULE_LIBRARIES)
-    target_link_libraries(${target_main_exe}  ${module_name}) # 添加模块库依赖到target.exe
-endforeach()    
+
+message("333头文件路径 : ${HEADER_DIRECTORIES}")
+message("333源文件路径 : ${SOURCE_FILES}")
+
+
+
+#################################################
+## 添加所有源代码文件
+file(GLOB_RECURSE SOURCE_FILES 
+    "${CMAKE_SOURCE_DIR}/inc/*.c"
+    "${CMAKE_SOURCE_DIR}/inc/*.cpp"
+    "${CMAKE_SOURCE_DIR}/src/*.c"
+    "${CMAKE_SOURCE_DIR}/src/*.cpp"
+)
+file(GLOB_RECURSE HEADER_FILES 
+    "${CMAKE_SOURCE_DIR}/inc/*.h"
+    "${CMAKE_SOURCE_DIR}/inc/*.hpp"
+)
+# Extract directory paths from the header files
+foreach(HEADER_FILE ${HEADER_FILES})
+    get_filename_component(DIRECTORY_PATH ${HEADER_FILE} DIRECTORY)
+    list(APPEND HEADER_DIRECTORIES ${DIRECTORY_PATH})
+endforeach()
+
+# Remove duplicate directory paths
+list(REMOVE_DUPLICATES HEADER_DIRECTORIES)
+
+message("头文件路径 : ${HEADER_DIRECTORIES}")
+message("源文件路径 : ${SOURCE_FILES}")
+
+
+
+#################################################
+## 添加可执行文件目标
+add_executable(${target_main_exe} ${SOURCE_FILES}) # 添加输出的目标可执行文件
+## 添加头文件包含
+target_include_directories(${target_main_exe} PUBLIC  ${HEADER_DIRECTORIES} )# 头文件包含
+target_link_libraries(${target_main_exe} PUBLIC  ${MODULE_LIBRARIES} )# 库模块包含
+
+set(lib_PATHS "${CMAKE_SOURCE_DIR}/Debug/libs")
+
+set_target_properties(${target_main_exe}  PROPERTIES 
+    OUTPUT_NAME "main" 
+    RUNTIME_OUTPUT_DIRECTORY ${lib_PATHS}
+)
+
+
+target_link_options(${target_main_exe} PRIVATE "-Wl,-rpath=${lib_PATHS}") #添加执行调试的 静态动态库路径
+
 
 
 

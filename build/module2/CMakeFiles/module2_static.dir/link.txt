@@ -1,2 +1,2 @@
-D:\mingw64\bin\ar.exe qc J:\workplace\cmake_cpp\Debug\libs\libmodule2_static_rename.a CMakeFiles/module2_static.dir/module2.cpp.obj
-D:\mingw64\bin\ranlib.exe J:\workplace\cmake_cpp\Debug\libs\libmodule2_static_rename.a
+D:\mingw64\bin\ar.exe qc libmodule2_static_rename.a CMakeFiles/module2_static.dir/module2.cpp.obj
+D:\mingw64\bin\ranlib.exe libmodule2_static_rename.a

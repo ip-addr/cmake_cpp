@@ -1,5 +1,11 @@
-CMake 中有多个预定义变量用来指示项目的不同目录结构和构建相关的路径，这里是一些常见的预定义变量及其含义：
+# cmake变量
+## 变量作用域
++ 子cmake对变量操作,需要加上PARENT_SCOPE 才会传递给其他cmakelist!
++ 函数function中,需要加上RETURN_VALUE 才会传递给函数外部cmakelist!
++ ==没有RETURN_VALUE,`function`/`子cmakelist`中变量只作用于内部,或者被其他父级重名变量覆盖,不会传递给外部cmakelist!==
+
 # cmake预设变量
+CMake 中有多个预定义变量用来指示项目的不同目录结构和构建相关的路径，这里是一些常见的预定义变量及其含义：
 ## 预定义变量表格
 | CMake 变量名 | 描述 |
 | --- | --- |
@@ -40,7 +46,6 @@ CMake 中有多个预定义变量用来指示项目的不同目录结构和构�
 
 9. **`CMAKE_CURRENT_LIST_FILE`**
    - 包含当前正在执行的 CMakeLists.txt 或 CMake 模块文件的完整路径。
-
 ## 其他预定义变量：
   
 - `CMAKE_GENERATOR`
@@ -51,12 +56,8 @@ CMake 中有多个预定义变量用来指示项目的不同目录结构和构�
 
 - `CMAKE_<LANG>_COMPILER`
   - 指定用于特定语言（如 C、CXX）的编译器路径。
-- `CMAKE_SYSTEM_NAME`, `CMAKE_SYSTEM_VERSION`, `CMAKE_SYSTEM_PROCESSOR`
-  - 描述目标系统的名称、版本和处理器架构。
-
+- 等等等等.......
 以上这些变量在CMake中都是全局可用的，可以帮助开发者灵活地处理不同层级的目录结构、构建选项以及系统相关的配置信息。此外，还有许多其他的预定义变量，具体可查阅CMake官方文档以获取完整列表及最新说明。
-
-
 
 ## 设置CMAKE预定义变量 `set()`
 ### 设置 项目构建
@@ -80,9 +81,9 @@ set(CMAKE_CXX_COMPILER "g++")
 ---
 ## 设置 项目输出
 ```cmake
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY dir1)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY dir2)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY dir3)
 ```
 
 
@@ -104,32 +105,38 @@ add_compile_options(-Wall -Wextra -pedantic   )
 
 ## `aux_source_directory`
 + `aux_source_directory`:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。 
-> aux_source_directory(. MATH_SRC) 
-## `file(GLOB  )`
-+ `file(GLOB  )`:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。
-> file(GLOB MATH_SRC *.cpp)
+> aux_source_directory(your_directory FindSrcDir) 
+## `file(GLOB/GLOB_RECURSE  )`/ 
+>file(GLOB/GLOB_RECURSE  <path-to-search> <variable>)
 
-# 搜索&添加 `头文件 .h .hpp`
++ `file(GLOB/GLOB_RECURSE  )`:该命令可以搜索指定目录（第一个参数）下的所有源文件，将源文件的列表保存到指定的变量（第二个参数）。
+> file(GLOB FindSrcDir *.cpp)
+> file(GLOB_RECURSE FindSrcDir *.cpp) #递归查找
 
-## `target_include_directories` 
+# 添加 `头文件 .h .hpp`
+
+## `target_include_directories`  目标局部作用
++ 可选作用域
 + 这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。
 ```cmake
 target_include_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
 ```
 
-## `target_link_directories`
-+ 这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。
-```cmake
-target_link_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
-```
- 
-## `include_directories` 
+## `include_directories`  全局作用
 + 添加头文件包含路径 全局
 ```cmake
 include_directories(path1 path2 ...)
 ```
 
-## `link_directories` 
+# 搜索&添加 `库文件 .a .so .dll .lib`
+
+## `target_link_directories` 库文件
++ 这可以确保自定义路径只应用于特定的目标，并使得相关路径不会泄漏到其他目标中。
+```cmake
+target_link_directories(target_name PRIVATE/PUBLIC/INTERFACE  Directory1 Directory2 ...)
+```
+
+## `link_directories`  库文件
 + 添加头文件包含路径 全局
 ```cmake
 link_directories(path1 path2 ...)
@@ -174,23 +181,7 @@ add_subdirectory(source_dir
 
 + `EXCLUDE_FROM_ALL`：可选布尔标记，如果设置，该子目录中的目标将不会被默认构建。用户必须明确指定这些目标才能进行构建。这对于包含可选组件、测试套件或示例代码等的子目录非常有用，可以避免不必要的构建开销。
 
-
-
-
-## `target_link_libraries`
-```cmake
- target_link_libraries(<target>
-    <PRIVATE|PUBLIC|INTERFACE> <items>...
-    [<PRIVATE|PUBLIC|INTERFACE> <items>...]...
-    [LINK_INTERFACE_LIBRARIES <items>...]
-    [LINK_PRIVATE <items>...]
-    [LINK_PUBLIC <items>...]
-    [LINK_INTERFACE_MULTIPLICITY <library> <count>...]
-)
-```
-+ 负责将库文件、其他目标（如静态库或共享库）以及链接标志与给定的目标（通常是可执行文件或库）关联起来。
-+ 可以清晰地定义项目中各个组成部分之间的依赖关系，确保编译器在构建目标时能正确链接所需的库文件。
-
+ 
 
 # 设置目标属性
 ## `set_target_properties`设置的属性
@@ -224,13 +215,28 @@ set_property(TARGET my_target PROPERTY COMPILE_DEFINITIONS MY_DEFINITION=ON)
 + ARCHIVE_OUTPUT_DIRECTORY 输出导入库路径  dll.a
 + LIBRARY_OUTPUT_DIRECTORY 输出库文件库路径 .a .lib
 + RUNTIME_OUTPUT_DIRECTORY 输出可执行文件路径 .exe .dll
++ 等等等等.......
 
 
 
 
 # 导入静态/动态库文件
 https://zhuanlan.zhihu.com/p/373363335
-##  target_link_options
+## `target_link_libraries`
+```cmake
+ target_link_libraries(<target>
+    <PRIVATE|PUBLIC|INTERFACE> <items>...
+    [<PRIVATE|PUBLIC|INTERFACE> <items>...]...
+    [LINK_INTERFACE_LIBRARIES <items>...]
+    [LINK_PRIVATE <items>...]
+    [LINK_PUBLIC <items>...]
+    [LINK_INTERFACE_MULTIPLICITY <library> <count>...]
+)
+```
++ 负责将库文件、其他目标（如静态库或共享库）以及链接标志与给定的目标（通常是可执行文件或库）关联起来。
++ 可以清晰地定义项目中各个组成部分之间的依赖关系，确保编译器在构建目标时能正确链接所需的库文件。
+
+##  `target_link_options`
 Add options to the link step for an executable, shared library or module
 + 添加执选项到目标可执行文件、共享库或模块的链接阶段。
 library target.
@@ -243,6 +249,44 @@ library target.
 # cmake构建主要流程
 https://zhuanlan.zhihu.com/p/371257515
 
+
+# `.cmake`的使用
+## `include()`
+==.cmake的使用需要`include(path_to_your_.cmake_directory)`==
+## 用法1.封装函数
+例如
+```cmake
+## 查找该目录下所有头文件所在的目录,并返回头文件列表
+function(find_header_directories PARENT_DIRECTORY HEADER_DIRECTORIES_OUT)
+    set(HEADER_DIRECTORIES "")
+    
+    # 使用GLOB_RECURSE查找父目录及其子目录下的.h和.hpp文件
+    file(GLOB_RECURSE HEADER_FILES
+        "${PARENT_DIRECTORY}/*.h"
+        "${PARENT_DIRECTORY}/*.hpp"
+    )
+
+    foreach(HEADER_FILE ${HEADER_FILES})
+        # 获取包含当前头文件的目录路径
+        get_filename_component(DIRECTORY_PATH ${HEADER_FILE} DIRECTORY)
+
+        # 添加目录到HEADER_DIRECTORIES列表
+        list(APPEND HEADER_DIRECTORIES ${DIRECTORY_PATH})
+    endforeach()
+
+    # 移除列表中的重复目录
+    list(REMOVE_DUPLICATES HEADER_DIRECTORIES)
+    set(${HEADER_DIRECTORIES_OUT} ${HEADER_DIRECTORIES} PARENT_SCOPE)
+    # set(${HEADER_DIRECTORIES_OUT} ${HEADER_DIRECTORIES}  )
+    # 将结果赋值给OUT_HEAR_DIRS参数，供父级CMake脚本使用 
+    # 必要的,不然这些变量只作用于函数内部,或者被其他重名变量覆盖
+endfunction()
+```
+## 用法2.封装变量
+
+## 用法3.封装宏
+
+## 用法4.封装脚本模块
 
 
 

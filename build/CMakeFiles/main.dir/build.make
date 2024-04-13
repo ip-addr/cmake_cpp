@@ -126,8 +126,8 @@ J:/workplace/cmake_cpp/Debug/libs/main.exe: CMakeFiles/main.dir/src/fun1.cpp.obj
 J:/workplace/cmake_cpp/Debug/libs/main.exe: CMakeFiles/main.dir/src/fun2.cpp.obj
 J:/workplace/cmake_cpp/Debug/libs/main.exe: CMakeFiles/main.dir/src/main.cpp.obj
 J:/workplace/cmake_cpp/Debug/libs/main.exe: CMakeFiles/main.dir/build.make
-J:/workplace/cmake_cpp/Debug/libs/main.exe: J:/workplace/cmake_cpp/Debug/libs/libmodule1_shared_rename.dll.a
-J:/workplace/cmake_cpp/Debug/libs/main.exe: J:/workplace/cmake_cpp/Debug/libs/libmodule2_static_rename.a
+J:/workplace/cmake_cpp/Debug/libs/main.exe: module1/libmodule1_shared_rename.dll.a
+J:/workplace/cmake_cpp/Debug/libs/main.exe: module2/libmodule2_static_rename.a
 J:/workplace/cmake_cpp/Debug/libs/main.exe: CMakeFiles/main.dir/linkLibs.rsp
 J:/workplace/cmake_cpp/Debug/libs/main.exe: CMakeFiles/main.dir/objects1.rsp
 J:/workplace/cmake_cpp/Debug/libs/main.exe: CMakeFiles/main.dir/link.txt

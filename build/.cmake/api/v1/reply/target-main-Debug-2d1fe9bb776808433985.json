@@ -32,25 +32,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 69,
+				"line" : 116,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 79,
+				"line" : 129,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 109,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 109,
+				"line" : 119,
 				"parent" : 0
 			},
 			{
@@ -68,7 +62,7 @@
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 70,
+				"line" : 118,
 				"parent" : 0
 			}
 		]
@@ -82,29 +76,29 @@
 					"fragment" : "-g -std=gnu++11"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"fragment" : "-Wall"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"fragment" : "-Wextra"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"fragment" : "-pedantic"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"define" : "DEBUG"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 7,
+					"backtrace" : 6,
 					"path" : "J:/workplace/cmake_cpp/inc"
 				},
 				{
@@ -112,7 +106,7 @@
 					"path" : "J:/workplace/cmake_cpp/module1"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"path" : "J:/workplace/cmake_cpp/module2"
 				}
 			],
@@ -140,7 +134,7 @@
 			"id" : "module1_shared::@7b43c4801f818007b112"
 		},
 		{
-			"backtrace" : 4,
+			"backtrace" : 3,
 			"id" : "module2_static::@bf6db2ce7a83d35d5172"
 		}
 	],
@@ -164,12 +158,12 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "J:\\workplace\\cmake_cpp\\Debug\\libs\\libmodule1_shared_rename.dll.a",
+				"fragment" : "module1\\libmodule1_shared_rename.dll.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 4,
-				"fragment" : "J:\\workplace\\cmake_cpp\\Debug\\libs\\libmodule2_static_rename.a",
+				"backtrace" : 3,
+				"fragment" : "module2\\libmodule2_static_rename.a",
 				"role" : "libraries"
 			},
 			{

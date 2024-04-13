@@ -36,6 +36,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.0-rc1/CMakeSystem.cmake"
   "J:/workplace/cmake_cpp/module1/CMakeLists.txt"
   "J:/workplace/cmake_cpp/module2/CMakeLists.txt"
+  "J:/workplace/cmake_cpp/myfun.cmake"
   )
 
 # The corresponding makefile is:
