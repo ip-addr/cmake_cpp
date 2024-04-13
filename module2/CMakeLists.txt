@@ -2,6 +2,8 @@
 # | CMAKE_SOURCE_DIR | 当前 CMakeLists.txt 所在的源码目录的根路径 |
 # | CMAKE_BINARY_DIR | 构建目录的根路径，用于存放构建生成的可执行文件、库和其他输出 |
 # aux_source_directory
+
+
 set(SOURCE_FILES "")
 aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}  SOURCE_FILES)
 
