@@ -11,7 +11,8 @@ include("${CMAKE_SOURCE_DIR}/myfun.cmake")
     message("222头文件路径 : ${HEADER_DIRECTORIES}")
     message("222源文件路径 : ${SOURCE_FILES}")
 
-    add_library(module1_shared SHARED ${SOURCE_FILES}) # 库类型 dll目标
+    # 定义模块1库
+    add_library(module1_shared SHARED ${SOURCE_FILES}) # 库类型 dll 
 
 
     set_target_properties(module1_shared PROPERTIES 
