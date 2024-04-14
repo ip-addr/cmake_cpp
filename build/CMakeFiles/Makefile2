@@ -62,20 +62,24 @@ CMAKE_BINARY_DIR = J:\workplace\cmake_cpp\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/main.dir/all
 all: module1/all
 all: module2/all
+all: practice/all
+all: module3/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: module1/preinstall
 preinstall: module2/preinstall
+preinstall: practice/preinstall
+preinstall: module3/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/main.dir/clean
 clean: module1/clean
 clean: module2/clean
+clean: practice/clean
+clean: module3/clean
 .PHONY : clean
 
 #=============================================================================
@@ -109,31 +113,34 @@ module2/clean: module2/CMakeFiles/module2_static.dir/clean
 .PHONY : module2/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/main.dir
+# Directory level rules for directory module3
 
-# All Build rule for target.
-CMakeFiles/main.dir/all: module1/CMakeFiles/module1_shared.dir/all
-CMakeFiles/main.dir/all: module2/CMakeFiles/module2_static.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=1,2,3,4 "Built target main"
-.PHONY : CMakeFiles/main.dir/all
+# Recursive "all" directory target.
+module3/all: module3/CMakeFiles/module3_static.dir/all
+.PHONY : module3/all
 
-# Build rule for subdir invocation for target.
-CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
-.PHONY : CMakeFiles/main.dir/rule
+# Recursive "preinstall" directory target.
+module3/preinstall:
+.PHONY : module3/preinstall
 
-# Convenience name for target.
-main: CMakeFiles/main.dir/rule
-.PHONY : main
+# Recursive "clean" directory target.
+module3/clean: module3/CMakeFiles/module3_static.dir/clean
+.PHONY : module3/clean
 
-# clean rule for target.
-CMakeFiles/main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/clean
-.PHONY : CMakeFiles/main.dir/clean
+#=============================================================================
+# Directory level rules for directory practice
+
+# Recursive "all" directory target.
+practice/all: practice/CMakeFiles/practice_main.dir/all
+.PHONY : practice/all
+
+# Recursive "preinstall" directory target.
+practice/preinstall:
+.PHONY : practice/preinstall
+
+# Recursive "clean" directory target.
+practice/clean: practice/CMakeFiles/practice_main.dir/clean
+.PHONY : practice/clean
 
 #=============================================================================
 # Target rules for target module1/CMakeFiles/module1_shared.dir
@@ -142,7 +149,7 @@ CMakeFiles/main.dir/clean:
 module1/CMakeFiles/module1_shared.dir/all:
 	$(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/depend
 	$(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=5,6 "Built target module1_shared"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=1,2 "Built target module1_shared"
 .PHONY : module1/CMakeFiles/module1_shared.dir/all
 
 # Build rule for subdir invocation for target.
@@ -168,7 +175,7 @@ module1/CMakeFiles/module1_shared.dir/clean:
 module2/CMakeFiles/module2_static.dir/all:
 	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/depend
 	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=7,8 "Built target module2_static"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=3,4 "Built target module2_static"
 .PHONY : module2/CMakeFiles/module2_static.dir/all
 
 # Build rule for subdir invocation for target.
@@ -186,6 +193,59 @@ module2_static: module2/CMakeFiles/module2_static.dir/rule
 module2/CMakeFiles/module2_static.dir/clean:
 	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/clean
 .PHONY : module2/CMakeFiles/module2_static.dir/clean
+
+#=============================================================================
+# Target rules for target practice/CMakeFiles/practice_main.dir
+
+# All Build rule for target.
+practice/CMakeFiles/practice_main.dir/all: module1/CMakeFiles/module1_shared.dir/all
+practice/CMakeFiles/practice_main.dir/all: module2/CMakeFiles/module2_static.dir/all
+	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=7,8,9,10 "Built target practice_main"
+.PHONY : practice/CMakeFiles/practice_main.dir/all
+
+# Build rule for subdir invocation for target.
+practice/CMakeFiles/practice_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/CMakeFiles/practice_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
+.PHONY : practice/CMakeFiles/practice_main.dir/rule
+
+# Convenience name for target.
+practice_main: practice/CMakeFiles/practice_main.dir/rule
+.PHONY : practice_main
+
+# clean rule for target.
+practice/CMakeFiles/practice_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/clean
+.PHONY : practice/CMakeFiles/practice_main.dir/clean
+
+#=============================================================================
+# Target rules for target module3/CMakeFiles/module3_static.dir
+
+# All Build rule for target.
+module3/CMakeFiles/module3_static.dir/all:
+	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/depend
+	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=5,6 "Built target module3_static"
+.PHONY : module3/CMakeFiles/module3_static.dir/all
+
+# Build rule for subdir invocation for target.
+module3/CMakeFiles/module3_static.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module3/CMakeFiles/module3_static.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
+.PHONY : module3/CMakeFiles/module3_static.dir/rule
+
+# Convenience name for target.
+module3_static: module3/CMakeFiles/module3_static.dir/rule
+.PHONY : module3_static
+
+# clean rule for target.
+module3/CMakeFiles/module3_static.dir/clean:
+	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/clean
+.PHONY : module3/CMakeFiles/module3_static.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -84,6 +84,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	"D:\Program Files\Cmake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	"D:\Program Files\Cmake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles J:\workplace\cmake_cpp\build\\CMakeFiles\progress.marks
@@ -116,19 +161,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named main
-
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 main
-.PHONY : main
-
-# fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
-
-#=============================================================================
 # Target rules for targets named module1_shared
 
 # Build rule for target.
@@ -154,77 +186,31 @@ module2_static/fast:
 	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/build
 .PHONY : module2_static/fast
 
-src/fun1.obj: src/fun1.cpp.obj
-.PHONY : src/fun1.obj
+#=============================================================================
+# Target rules for targets named practice_main
 
-# target to build an object file
-src/fun1.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/fun1.cpp.obj
-.PHONY : src/fun1.cpp.obj
+# Build rule for target.
+practice_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice_main
+.PHONY : practice_main
 
-src/fun1.i: src/fun1.cpp.i
-.PHONY : src/fun1.i
+# fast build rule for target.
+practice_main/fast:
+	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/build
+.PHONY : practice_main/fast
 
-# target to preprocess a source file
-src/fun1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/fun1.cpp.i
-.PHONY : src/fun1.cpp.i
+#=============================================================================
+# Target rules for targets named module3_static
 
-src/fun1.s: src/fun1.cpp.s
-.PHONY : src/fun1.s
+# Build rule for target.
+module3_static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module3_static
+.PHONY : module3_static
 
-# target to generate assembly for a file
-src/fun1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/fun1.cpp.s
-.PHONY : src/fun1.cpp.s
-
-src/fun2.obj: src/fun2.cpp.obj
-.PHONY : src/fun2.obj
-
-# target to build an object file
-src/fun2.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/fun2.cpp.obj
-.PHONY : src/fun2.cpp.obj
-
-src/fun2.i: src/fun2.cpp.i
-.PHONY : src/fun2.i
-
-# target to preprocess a source file
-src/fun2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/fun2.cpp.i
-.PHONY : src/fun2.cpp.i
-
-src/fun2.s: src/fun2.cpp.s
-.PHONY : src/fun2.s
-
-# target to generate assembly for a file
-src/fun2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/fun2.cpp.s
-.PHONY : src/fun2.cpp.s
-
-src/main.obj: src/main.cpp.obj
-.PHONY : src/main.obj
-
-# target to build an object file
-src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/main.cpp.obj
-.PHONY : src/main.cpp.obj
-
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+# fast build rule for target.
+module3_static/fast:
+	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/build
+.PHONY : module3_static/fast
 
 # Help Target
 help:
@@ -233,19 +219,15 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
+	@echo ... install
+	@echo ... install/local
+	@echo ... install/strip
+	@echo ... list_install_components
 	@echo ... rebuild_cache
-	@echo ... main
 	@echo ... module1_shared
 	@echo ... module2_static
-	@echo ... src/fun1.obj
-	@echo ... src/fun1.i
-	@echo ... src/fun1.s
-	@echo ... src/fun2.obj
-	@echo ... src/fun2.i
-	@echo ... src/fun2.s
-	@echo ... src/main.obj
-	@echo ... src/main.i
-	@echo ... src/main.s
+	@echo ... module3_static
+	@echo ... practice_main
 .PHONY : help
 
 

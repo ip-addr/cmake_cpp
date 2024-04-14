@@ -1,0 +1,2 @@
+D:\mingw64\bin\ar.exe qc J:\workplace\cmake_cpp\Debug\bin\libmodule3_static_rename.a CMakeFiles/module3_static.dir/module3.cpp.obj
+D:\mingw64\bin\ranlib.exe J:\workplace\cmake_cpp\Debug\bin\libmodule3_static_rename.a

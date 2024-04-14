@@ -3,24 +3,20 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "lib_dll_paths":[
-        "${workspaceFolder}\\Debug",
-        "${workspaceFolder}\\Debug\\libs",
-    ],
     "configurations": [
         {
             "name": "gdb Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Debug/libs/main.exe",
+            "program": "${workspaceFolder}/Debug/bin/practice_main.exe",
             "args": [],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             // "additionalSOLibSearchPath": "${workspaceFolder}\\Debug\\libs",
             "environment": [
                 {
                     "name": "PATH",
-                    "value": "${env:PATH};${workspaceFolder}\\Debug;${workspaceFolder}\\Debug\\libs;"
+                    "value": "${env:PATH};${workspaceFolder}\\Debug;${workspaceFolder}\\Debug\\bin;"
                 },
             ],
             

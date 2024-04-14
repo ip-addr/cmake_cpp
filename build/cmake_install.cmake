@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/项目名字")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Super_Project")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -41,6 +41,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("J:/workplace/cmake_cpp/build/module1/cmake_install.cmake")
   include("J:/workplace/cmake_cpp/build/module2/cmake_install.cmake")
+  include("J:/workplace/cmake_cpp/build/practice/cmake_install.cmake")
+  include("J:/workplace/cmake_cpp/build/module3/cmake_install.cmake")
 
 endif()
 
