@@ -1,38 +1,38 @@
 [
 {
-  "directory": "J:/workplace/cmake_cpp/build/module1",
-  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG -Dmodule1_shared_EXPORTS  -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\module1_shared.dir\\module1.cpp.obj -c J:\\workplace\\cmake_cpp\\module1\\module1.cpp",
-  "file": "J:/workplace/cmake_cpp/module1/module1.cpp",
+  "directory": "J:/studyplace/cmake_cpp/build/module1",
+  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG -Dmodule1_shared_EXPORTS  -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\module1_shared.dir\\module1.cpp.obj -c J:\\studyplace\\cmake_cpp\\module1\\module1.cpp",
+  "file": "J:/studyplace/cmake_cpp/module1/module1.cpp",
   "output": "module1/CMakeFiles/module1_shared.dir/module1.cpp.obj"
 },
 {
-  "directory": "J:/workplace/cmake_cpp/build/module2",
-  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG  -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\module2_static.dir\\module2.cpp.obj -c J:\\workplace\\cmake_cpp\\module2\\module2.cpp",
-  "file": "J:/workplace/cmake_cpp/module2/module2.cpp",
+  "directory": "J:/studyplace/cmake_cpp/build/module2",
+  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG  -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\module2_static.dir\\module2.cpp.obj -c J:\\studyplace\\cmake_cpp\\module2\\module2.cpp",
+  "file": "J:/studyplace/cmake_cpp/module2/module2.cpp",
   "output": "module2/CMakeFiles/module2_static.dir/module2.cpp.obj"
 },
 {
-  "directory": "J:/workplace/cmake_cpp/build/practice",
-  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG @CMakeFiles/practice_main.dir/includes_CXX.rsp -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\practice_main.dir\\src\\fun1.cpp.obj -c J:\\workplace\\cmake_cpp\\practice\\src\\fun1.cpp",
-  "file": "J:/workplace/cmake_cpp/practice/src/fun1.cpp",
+  "directory": "J:/studyplace/cmake_cpp/build/practice",
+  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG @CMakeFiles/practice_main.dir/includes_CXX.rsp -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\practice_main.dir\\src\\fun1.cpp.obj -c J:\\studyplace\\cmake_cpp\\practice\\src\\fun1.cpp",
+  "file": "J:/studyplace/cmake_cpp/practice/src/fun1.cpp",
   "output": "practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj"
 },
 {
-  "directory": "J:/workplace/cmake_cpp/build/practice",
-  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG @CMakeFiles/practice_main.dir/includes_CXX.rsp -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\practice_main.dir\\src\\fun2.cpp.obj -c J:\\workplace\\cmake_cpp\\practice\\src\\fun2.cpp",
-  "file": "J:/workplace/cmake_cpp/practice/src/fun2.cpp",
+  "directory": "J:/studyplace/cmake_cpp/build/practice",
+  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG @CMakeFiles/practice_main.dir/includes_CXX.rsp -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\practice_main.dir\\src\\fun2.cpp.obj -c J:\\studyplace\\cmake_cpp\\practice\\src\\fun2.cpp",
+  "file": "J:/studyplace/cmake_cpp/practice/src/fun2.cpp",
   "output": "practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj"
 },
 {
-  "directory": "J:/workplace/cmake_cpp/build/practice",
-  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG @CMakeFiles/practice_main.dir/includes_CXX.rsp -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\practice_main.dir\\src\\main.cpp.obj -c J:\\workplace\\cmake_cpp\\practice\\src\\main.cpp",
-  "file": "J:/workplace/cmake_cpp/practice/src/main.cpp",
+  "directory": "J:/studyplace/cmake_cpp/build/practice",
+  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG @CMakeFiles/practice_main.dir/includes_CXX.rsp -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\practice_main.dir\\src\\main.cpp.obj -c J:\\studyplace\\cmake_cpp\\practice\\src\\main.cpp",
+  "file": "J:/studyplace/cmake_cpp/practice/src/main.cpp",
   "output": "practice/CMakeFiles/practice_main.dir/src/main.cpp.obj"
 },
 {
-  "directory": "J:/workplace/cmake_cpp/build/module3",
-  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG  -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\module3_static.dir\\module3.cpp.obj -c J:\\workplace\\cmake_cpp\\module3\\module3.cpp",
-  "file": "J:/workplace/cmake_cpp/module3/module3.cpp",
+  "directory": "J:/studyplace/cmake_cpp/build/module3",
+  "command": "D:\\mingw64\\bin\\g++.exe -DDEBUG  -g -std=gnu++11 -Wall -Wextra -pedantic -o CMakeFiles\\module3_static.dir\\module3.cpp.obj -c J:\\studyplace\\cmake_cpp\\module3\\module3.cpp",
+  "file": "J:/studyplace/cmake_cpp/module3/module3.cpp",
   "output": "module3/CMakeFiles/module3_static.dir/module3.cpp.obj"
 }
 ]

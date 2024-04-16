@@ -1,3 +1,9 @@
+[`cmake-examples参考示例`](https://github.com/ttroy50/cmake-examples/tree/master/01-basic)
++ https://github.com/ttroy50/cmake-examples/tree/master/01-basic
+[`cmake-docs官方文档`](https://cmake.org/cmake/help/latest/index.html)
++ https://cmake.org/cmake/help/latest/index.html
+
+
 [TOC]
 
 ---

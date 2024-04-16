@@ -52,10 +52,10 @@ RM = "D:\Program Files\Cmake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = J:\workplace\cmake_cpp
+CMAKE_SOURCE_DIR = J:\studyplace\cmake_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = J:\workplace\cmake_cpp\build
+CMAKE_BINARY_DIR = J:\studyplace\cmake_cpp\build
 
 # Include any dependencies generated for this target.
 include module3/CMakeFiles/module3_static.dir/depend.make
@@ -69,18 +69,18 @@ include module3/CMakeFiles/module3_static.dir/progress.make
 include module3/CMakeFiles/module3_static.dir/flags.make
 
 module3/CMakeFiles/module3_static.dir/module3.cpp.obj: module3/CMakeFiles/module3_static.dir/flags.make
-module3/CMakeFiles/module3_static.dir/module3.cpp.obj: J:/workplace/cmake_cpp/module3/module3.cpp
+module3/CMakeFiles/module3_static.dir/module3.cpp.obj: J:/studyplace/cmake_cpp/module3/module3.cpp
 module3/CMakeFiles/module3_static.dir/module3.cpp.obj: module3/CMakeFiles/module3_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object module3/CMakeFiles/module3_static.dir/module3.cpp.obj"
-	cd /d J:\workplace\cmake_cpp\build\module3 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT module3/CMakeFiles/module3_static.dir/module3.cpp.obj -MF CMakeFiles\module3_static.dir\module3.cpp.obj.d -o CMakeFiles\module3_static.dir\module3.cpp.obj -c J:\workplace\cmake_cpp\module3\module3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object module3/CMakeFiles/module3_static.dir/module3.cpp.obj"
+	cd /d J:\studyplace\cmake_cpp\build\module3 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT module3/CMakeFiles/module3_static.dir/module3.cpp.obj -MF CMakeFiles\module3_static.dir\module3.cpp.obj.d -o CMakeFiles\module3_static.dir\module3.cpp.obj -c J:\studyplace\cmake_cpp\module3\module3.cpp
 
 module3/CMakeFiles/module3_static.dir/module3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/module3_static.dir/module3.cpp.i"
-	cd /d J:\workplace\cmake_cpp\build\module3 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\workplace\cmake_cpp\module3\module3.cpp > CMakeFiles\module3_static.dir\module3.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build\module3 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\studyplace\cmake_cpp\module3\module3.cpp > CMakeFiles\module3_static.dir\module3.cpp.i
 
 module3/CMakeFiles/module3_static.dir/module3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/module3_static.dir/module3.cpp.s"
-	cd /d J:\workplace\cmake_cpp\build\module3 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\workplace\cmake_cpp\module3\module3.cpp -o CMakeFiles\module3_static.dir\module3.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build\module3 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\studyplace\cmake_cpp\module3\module3.cpp -o CMakeFiles\module3_static.dir\module3.cpp.s
 
 # Object files for target module3_static
 module3_static_OBJECTS = \
@@ -89,22 +89,22 @@ module3_static_OBJECTS = \
 # External object files for target module3_static
 module3_static_EXTERNAL_OBJECTS =
 
-J:/workplace/cmake_cpp/Debug/bin/libmodule3_static_rename.a: module3/CMakeFiles/module3_static.dir/module3.cpp.obj
-J:/workplace/cmake_cpp/Debug/bin/libmodule3_static_rename.a: module3/CMakeFiles/module3_static.dir/build.make
-J:/workplace/cmake_cpp/Debug/bin/libmodule3_static_rename.a: module3/CMakeFiles/module3_static.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library J:\workplace\cmake_cpp\Debug\bin\libmodule3_static_rename.a"
-	cd /d J:\workplace\cmake_cpp\build\module3 && $(CMAKE_COMMAND) -P CMakeFiles\module3_static.dir\cmake_clean_target.cmake
-	cd /d J:\workplace\cmake_cpp\build\module3 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\module3_static.dir\link.txt --verbose=$(VERBOSE)
+Debug/libmodule3_static_rename.a: module3/CMakeFiles/module3_static.dir/module3.cpp.obj
+Debug/libmodule3_static_rename.a: module3/CMakeFiles/module3_static.dir/build.make
+Debug/libmodule3_static_rename.a: module3/CMakeFiles/module3_static.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ..\Debug\libmodule3_static_rename.a"
+	cd /d J:\studyplace\cmake_cpp\build\module3 && $(CMAKE_COMMAND) -P CMakeFiles\module3_static.dir\cmake_clean_target.cmake
+	cd /d J:\studyplace\cmake_cpp\build\module3 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\module3_static.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-module3/CMakeFiles/module3_static.dir/build: J:/workplace/cmake_cpp/Debug/bin/libmodule3_static_rename.a
+module3/CMakeFiles/module3_static.dir/build: Debug/libmodule3_static_rename.a
 .PHONY : module3/CMakeFiles/module3_static.dir/build
 
 module3/CMakeFiles/module3_static.dir/clean:
-	cd /d J:\workplace\cmake_cpp\build\module3 && $(CMAKE_COMMAND) -P CMakeFiles\module3_static.dir\cmake_clean.cmake
+	cd /d J:\studyplace\cmake_cpp\build\module3 && $(CMAKE_COMMAND) -P CMakeFiles\module3_static.dir\cmake_clean.cmake
 .PHONY : module3/CMakeFiles/module3_static.dir/clean
 
 module3/CMakeFiles/module3_static.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" J:\workplace\cmake_cpp J:\workplace\cmake_cpp\module3 J:\workplace\cmake_cpp\build J:\workplace\cmake_cpp\build\module3 J:\workplace\cmake_cpp\build\module3\CMakeFiles\module3_static.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" J:\studyplace\cmake_cpp J:\studyplace\cmake_cpp\module3 J:\studyplace\cmake_cpp\build J:\studyplace\cmake_cpp\build\module3 J:\studyplace\cmake_cpp\build\module3\CMakeFiles\module3_static.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : module3/CMakeFiles/module3_static.dir/depend
 

@@ -1,6 +1,6 @@
 module3/CMakeFiles/module3_static.dir/module3.cpp.obj: \
- J:\workplace\cmake_cpp\module3\module3.cpp \
- J:/workplace/cmake_cpp/module3/include/module3.h \
+ J:\studyplace\cmake_cpp\module3\module3.cpp \
+ J:/studyplace/cmake_cpp/module3/include/module3.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \

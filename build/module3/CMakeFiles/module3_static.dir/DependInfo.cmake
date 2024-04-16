@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "J:/workplace/cmake_cpp/module3/module3.cpp" "module3/CMakeFiles/module3_static.dir/module3.cpp.obj" "gcc" "module3/CMakeFiles/module3_static.dir/module3.cpp.obj.d"
+  "J:/studyplace/cmake_cpp/module3/module3.cpp" "module3/CMakeFiles/module3_static.dir/module3.cpp.obj" "gcc" "module3/CMakeFiles/module3_static.dir/module3.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

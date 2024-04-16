@@ -8,7 +8,7 @@
             "name": "gdb Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Debug/bin/practice_main.exe",
+            "program": "${workspaceFolder}/build/Debug/practice_main.exe",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -16,7 +16,7 @@
             "environment": [
                 {
                     "name": "PATH",
-                    "value": "${env:PATH};${workspaceFolder}\\Debug;${workspaceFolder}\\Debug\\bin;"
+                    "value": "${env:PATH};${workspaceFolder}/build;${workspaceFolder}/build/Debug"
                 },
             ],
             

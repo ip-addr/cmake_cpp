@@ -1,4 +1,4 @@
-# Install script for directory: J:/workplace/cmake_cpp
+# Install script for directory: J:/studyplace/cmake_cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("J:/workplace/cmake_cpp/build/module1/cmake_install.cmake")
-  include("J:/workplace/cmake_cpp/build/module2/cmake_install.cmake")
-  include("J:/workplace/cmake_cpp/build/practice/cmake_install.cmake")
-  include("J:/workplace/cmake_cpp/build/module3/cmake_install.cmake")
+  include("J:/studyplace/cmake_cpp/build/module1/cmake_install.cmake")
+  include("J:/studyplace/cmake_cpp/build/module2/cmake_install.cmake")
+  include("J:/studyplace/cmake_cpp/build/practice/cmake_install.cmake")
+  include("J:/studyplace/cmake_cpp/build/module3/cmake_install.cmake")
 
 endif()
 
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "J:/workplace/cmake_cpp/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "J:/studyplace/cmake_cpp/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

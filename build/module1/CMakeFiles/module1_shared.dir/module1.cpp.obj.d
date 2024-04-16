@@ -1,6 +1,6 @@
 module1/CMakeFiles/module1_shared.dir/module1.cpp.obj: \
- J:\workplace\cmake_cpp\module1\module1.cpp \
- J:/workplace/cmake_cpp/module1/module1.h \
+ J:\studyplace\cmake_cpp\module1\module1.cpp \
+ J:/studyplace/cmake_cpp/module1/module1.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \

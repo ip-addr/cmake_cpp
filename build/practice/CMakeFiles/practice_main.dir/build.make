@@ -52,10 +52,10 @@ RM = "D:\Program Files\Cmake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = J:\workplace\cmake_cpp
+CMAKE_SOURCE_DIR = J:\studyplace\cmake_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = J:\workplace\cmake_cpp\build
+CMAKE_BINARY_DIR = J:\studyplace\cmake_cpp\build
 
 # Include any dependencies generated for this target.
 include practice/CMakeFiles/practice_main.dir/depend.make
@@ -70,48 +70,48 @@ include practice/CMakeFiles/practice_main.dir/flags.make
 
 practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj: practice/CMakeFiles/practice_main.dir/flags.make
 practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj: practice/CMakeFiles/practice_main.dir/includes_CXX.rsp
-practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj: J:/workplace/cmake_cpp/practice/src/fun1.cpp
+practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj: J:/studyplace/cmake_cpp/practice/src/fun1.cpp
 practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj: practice/CMakeFiles/practice_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj -MF CMakeFiles\practice_main.dir\src\fun1.cpp.obj.d -o CMakeFiles\practice_main.dir\src\fun1.cpp.obj -c J:\workplace\cmake_cpp\practice\src\fun1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj"
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj -MF CMakeFiles\practice_main.dir\src\fun1.cpp.obj.d -o CMakeFiles\practice_main.dir\src\fun1.cpp.obj -c J:\studyplace\cmake_cpp\practice\src\fun1.cpp
 
 practice/CMakeFiles/practice_main.dir/src/fun1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/practice_main.dir/src/fun1.cpp.i"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\workplace\cmake_cpp\practice\src\fun1.cpp > CMakeFiles\practice_main.dir\src\fun1.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\studyplace\cmake_cpp\practice\src\fun1.cpp > CMakeFiles\practice_main.dir\src\fun1.cpp.i
 
 practice/CMakeFiles/practice_main.dir/src/fun1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/practice_main.dir/src/fun1.cpp.s"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\workplace\cmake_cpp\practice\src\fun1.cpp -o CMakeFiles\practice_main.dir\src\fun1.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\studyplace\cmake_cpp\practice\src\fun1.cpp -o CMakeFiles\practice_main.dir\src\fun1.cpp.s
 
 practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj: practice/CMakeFiles/practice_main.dir/flags.make
 practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj: practice/CMakeFiles/practice_main.dir/includes_CXX.rsp
-practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj: J:/workplace/cmake_cpp/practice/src/fun2.cpp
+practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj: J:/studyplace/cmake_cpp/practice/src/fun2.cpp
 practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj: practice/CMakeFiles/practice_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj -MF CMakeFiles\practice_main.dir\src\fun2.cpp.obj.d -o CMakeFiles\practice_main.dir\src\fun2.cpp.obj -c J:\workplace\cmake_cpp\practice\src\fun2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj"
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj -MF CMakeFiles\practice_main.dir\src\fun2.cpp.obj.d -o CMakeFiles\practice_main.dir\src\fun2.cpp.obj -c J:\studyplace\cmake_cpp\practice\src\fun2.cpp
 
 practice/CMakeFiles/practice_main.dir/src/fun2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/practice_main.dir/src/fun2.cpp.i"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\workplace\cmake_cpp\practice\src\fun2.cpp > CMakeFiles\practice_main.dir\src\fun2.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\studyplace\cmake_cpp\practice\src\fun2.cpp > CMakeFiles\practice_main.dir\src\fun2.cpp.i
 
 practice/CMakeFiles/practice_main.dir/src/fun2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/practice_main.dir/src/fun2.cpp.s"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\workplace\cmake_cpp\practice\src\fun2.cpp -o CMakeFiles\practice_main.dir\src\fun2.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\studyplace\cmake_cpp\practice\src\fun2.cpp -o CMakeFiles\practice_main.dir\src\fun2.cpp.s
 
 practice/CMakeFiles/practice_main.dir/src/main.cpp.obj: practice/CMakeFiles/practice_main.dir/flags.make
 practice/CMakeFiles/practice_main.dir/src/main.cpp.obj: practice/CMakeFiles/practice_main.dir/includes_CXX.rsp
-practice/CMakeFiles/practice_main.dir/src/main.cpp.obj: J:/workplace/cmake_cpp/practice/src/main.cpp
+practice/CMakeFiles/practice_main.dir/src/main.cpp.obj: J:/studyplace/cmake_cpp/practice/src/main.cpp
 practice/CMakeFiles/practice_main.dir/src/main.cpp.obj: practice/CMakeFiles/practice_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object practice/CMakeFiles/practice_main.dir/src/main.cpp.obj"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT practice/CMakeFiles/practice_main.dir/src/main.cpp.obj -MF CMakeFiles\practice_main.dir\src\main.cpp.obj.d -o CMakeFiles\practice_main.dir\src\main.cpp.obj -c J:\workplace\cmake_cpp\practice\src\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object practice/CMakeFiles/practice_main.dir/src/main.cpp.obj"
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT practice/CMakeFiles/practice_main.dir/src/main.cpp.obj -MF CMakeFiles\practice_main.dir\src\main.cpp.obj.d -o CMakeFiles\practice_main.dir\src\main.cpp.obj -c J:\studyplace\cmake_cpp\practice\src\main.cpp
 
 practice/CMakeFiles/practice_main.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/practice_main.dir/src/main.cpp.i"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\workplace\cmake_cpp\practice\src\main.cpp > CMakeFiles\practice_main.dir\src\main.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\studyplace\cmake_cpp\practice\src\main.cpp > CMakeFiles\practice_main.dir\src\main.cpp.i
 
 practice/CMakeFiles/practice_main.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/practice_main.dir/src/main.cpp.s"
-	cd /d J:\workplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\workplace\cmake_cpp\practice\src\main.cpp -o CMakeFiles\practice_main.dir\src\main.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build\practice && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\studyplace\cmake_cpp\practice\src\main.cpp -o CMakeFiles\practice_main.dir\src\main.cpp.s
 
 # Object files for target practice_main
 practice_main_OBJECTS = \
@@ -122,27 +122,31 @@ practice_main_OBJECTS = \
 # External object files for target practice_main
 practice_main_EXTERNAL_OBJECTS =
 
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: practice/CMakeFiles/practice_main.dir/src/main.cpp.obj
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: practice/CMakeFiles/practice_main.dir/build.make
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: J:/workplace/cmake_cpp/Debug/bin/libmodule2_static_rename.a
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll.a
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: practice/CMakeFiles/practice_main.dir/linkLibs.rsp
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: practice/CMakeFiles/practice_main.dir/objects1.rsp
-J:/workplace/cmake_cpp/Debug/bin/practice_main.exe: practice/CMakeFiles/practice_main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable J:\workplace\cmake_cpp\Debug\bin\practice_main.exe"
-	cd /d J:\workplace\cmake_cpp\build\practice && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\practice_main.dir\link.txt --verbose=$(VERBOSE)
+Debug/practice_main.exe: practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj
+Debug/practice_main.exe: practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj
+Debug/practice_main.exe: practice/CMakeFiles/practice_main.dir/src/main.cpp.obj
+Debug/practice_main.exe: practice/CMakeFiles/practice_main.dir/build.make
+Debug/practice_main.exe: Debug/libmodule2_static_rename.a
+Debug/practice_main.exe: Debug/libmodule1_shared_rename.dll.a
+Debug/practice_main.exe: J:/studyplace/cmake_cpp/thirdpart/SDL2-devel-2.28.2-mingw/SDL2-2.28.2/x86_64-w64-mingw32/lib/libSDL2main.a
+Debug/practice_main.exe: J:/studyplace/cmake_cpp/thirdpart/SDL2-devel-2.28.2-mingw/SDL2-2.28.2/x86_64-w64-mingw32/lib/libSDL2.dll.a
+Debug/practice_main.exe: practice/CMakeFiles/practice_main.dir/linkLibs.rsp
+Debug/practice_main.exe: practice/CMakeFiles/practice_main.dir/objects1.rsp
+Debug/practice_main.exe: practice/CMakeFiles/practice_main.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ..\Debug\practice_main.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "copy J:/studyplace/cmake_cpp/thirdpart/SDL2-devel-2.28.2-mingw/SDL2-2.28.2//x86_64-w64-mingw32/bin/SDL2.dll to J:/studyplace/cmake_cpp/build/Debug"
+	cd /d J:\studyplace\cmake_cpp\build\practice && "D:\Program Files\Cmake\bin\cmake.exe" -E copy_if_different J:/studyplace/cmake_cpp/thirdpart/SDL2-devel-2.28.2-mingw/SDL2-2.28.2//x86_64-w64-mingw32/bin/SDL2.dll J:/studyplace/cmake_cpp/build/Debug
+	cd /d J:\studyplace\cmake_cpp\build\practice && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\practice_main.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-practice/CMakeFiles/practice_main.dir/build: J:/workplace/cmake_cpp/Debug/bin/practice_main.exe
+practice/CMakeFiles/practice_main.dir/build: Debug/practice_main.exe
 .PHONY : practice/CMakeFiles/practice_main.dir/build
 
 practice/CMakeFiles/practice_main.dir/clean:
-	cd /d J:\workplace\cmake_cpp\build\practice && $(CMAKE_COMMAND) -P CMakeFiles\practice_main.dir\cmake_clean.cmake
+	cd /d J:\studyplace\cmake_cpp\build\practice && $(CMAKE_COMMAND) -P CMakeFiles\practice_main.dir\cmake_clean.cmake
 .PHONY : practice/CMakeFiles/practice_main.dir/clean
 
 practice/CMakeFiles/practice_main.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" J:\workplace\cmake_cpp J:\workplace\cmake_cpp\practice J:\workplace\cmake_cpp\build J:\workplace\cmake_cpp\build\practice J:\workplace\cmake_cpp\build\practice\CMakeFiles\practice_main.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" J:\studyplace\cmake_cpp J:\studyplace\cmake_cpp\practice J:\studyplace\cmake_cpp\build J:\studyplace\cmake_cpp\build\practice J:\studyplace\cmake_cpp\build\practice\CMakeFiles\practice_main.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : practice/CMakeFiles/practice_main.dir/depend
 

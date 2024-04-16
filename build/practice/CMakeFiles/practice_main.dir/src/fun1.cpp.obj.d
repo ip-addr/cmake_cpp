@@ -1,6 +1,6 @@
 practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj: \
- J:\workplace\cmake_cpp\practice\src\fun1.cpp \
- J:/workplace/cmake_cpp/practice/inc/fun1.h \
+ J:\studyplace\cmake_cpp\practice\src\fun1.cpp \
+ J:/studyplace/cmake_cpp/practice/inc/fun1.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \

@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "J:/workplace/cmake_cpp/practice/src/fun1.cpp" "practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj" "gcc" "practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj.d"
-  "J:/workplace/cmake_cpp/practice/src/fun2.cpp" "practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj" "gcc" "practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj.d"
-  "J:/workplace/cmake_cpp/practice/src/main.cpp" "practice/CMakeFiles/practice_main.dir/src/main.cpp.obj" "gcc" "practice/CMakeFiles/practice_main.dir/src/main.cpp.obj.d"
+  "J:/studyplace/cmake_cpp/practice/src/fun1.cpp" "practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj" "gcc" "practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj.d"
+  "J:/studyplace/cmake_cpp/practice/src/fun2.cpp" "practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj" "gcc" "practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj.d"
+  "J:/studyplace/cmake_cpp/practice/src/main.cpp" "practice/CMakeFiles/practice_main.dir/src/main.cpp.obj" "gcc" "practice/CMakeFiles/practice_main.dir/src/main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

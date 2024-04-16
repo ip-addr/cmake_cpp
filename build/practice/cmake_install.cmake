@@ -1,4 +1,4 @@
-# Install script for directory: J:/workplace/cmake_cpp/practice
+# Install script for directory: J:/studyplace/cmake_cpp/practice
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -56,10 +56,10 @@ RM = "D:\Program Files\Cmake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = J:\workplace\cmake_cpp
+CMAKE_SOURCE_DIR = J:\studyplace\cmake_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = J:\workplace\cmake_cpp\build
+CMAKE_BINARY_DIR = J:\studyplace\cmake_cpp\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -84,61 +84,16 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /d J:\workplace\cmake_cpp\build && $(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles J:\workplace\cmake_cpp\build\module1\\CMakeFiles\progress.marks
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/all
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
+	cd /d J:\studyplace\cmake_cpp\build && $(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles J:\studyplace\cmake_cpp\build\module1\\CMakeFiles\progress.marks
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/all
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/clean
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/clean
 .PHONY : clean
 
 # The main clean target
@@ -147,22 +102,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/preinstall
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/preinstall
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d J:\workplace\cmake_cpp\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d J:\studyplace\cmake_cpp\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 module1/CMakeFiles/module1_shared.dir/rule:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/CMakeFiles/module1_shared.dir/rule
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/CMakeFiles/module1_shared.dir/rule
 .PHONY : module1/CMakeFiles/module1_shared.dir/rule
 
 # Convenience name for target.
@@ -171,7 +126,7 @@ module1_shared: module1/CMakeFiles/module1_shared.dir/rule
 
 # fast build rule for target.
 module1_shared/fast:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/build
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/build
 .PHONY : module1_shared/fast
 
 module1.obj: module1.cpp.obj
@@ -179,7 +134,7 @@ module1.obj: module1.cpp.obj
 
 # target to build an object file
 module1.cpp.obj:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/module1.cpp.obj
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/module1.cpp.obj
 .PHONY : module1.cpp.obj
 
 module1.i: module1.cpp.i
@@ -187,7 +142,7 @@ module1.i: module1.cpp.i
 
 # target to preprocess a source file
 module1.cpp.i:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/module1.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/module1.cpp.i
 .PHONY : module1.cpp.i
 
 module1.s: module1.cpp.s
@@ -195,7 +150,7 @@ module1.s: module1.cpp.s
 
 # target to generate assembly for a file
 module1.cpp.s:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/module1.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/module1.cpp.s
 .PHONY : module1.cpp.s
 
 # Help Target
@@ -205,10 +160,6 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
-	@echo ... install
-	@echo ... install/local
-	@echo ... install/strip
-	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... module1_shared
 	@echo ... module1.obj
@@ -225,6 +176,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d J:\workplace\cmake_cpp\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d J:\studyplace\cmake_cpp\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -16,11 +16,6 @@ set(HEADER_DIRECTORIES
     "${CMAKE_CURRENT_SOURCE_DIR}/inc"
 )
 
-message("${PROJECT_NAME} 头文件路径 : ${HEADER_DIRECTORIES}")
-message("${PROJECT_NAME} 源文件列表 : ${SOURCE_FILES}")
-
-
-
 #################################################
 # 添加输出的目标可执行文件
 add_executable(${PROJECT_NAME} ${SOURCE_FILES}) 
@@ -41,17 +36,45 @@ target_link_libraries(${PROJECT_NAME}
     PRIVATE mylib::module1_shared
 )# 库模块包含
 
-# find_library(lib1 module1_shared PATHS ${TOTAL_OUTPUT_DIRECTORY})
-# find_library(lib2 module2_static PATHS ${TOTAL_OUTPUT_DIRECTORY})
-# message (" module1_shared ${lib1}")
-# message (" module1_shared ${lib2}")
-# target_link_libraries(${PROJECT_NAME} ${lib1} ${lib2})
+#################################################
+# 添加 第三方库
+if(WIN32)
+    #找到需要用的dll, Find SDL2.dll in the expected location relative to the library directory
+    set(SDL2_DLL_SEARCH_PATH "${SDL2_PATH_TOP}/x86_64-w64-mingw32" )
+    set(SDL2_DLL_DESTINATION "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
+    message("SDL2_DLL_SEARCH_PATH: ${SDL2_DLL_SEARCH_PATH}")
+    find_package(SDL2  REQUIRED CONFIG HINTS "${SDL2_PATH_TOP}")
+    if(SDL2_FOUND)
+        
+        include_directories(${SDL2_INCLUDE_DIR})
+        target_link_libraries(${PROJECT_NAME}  
+            PUBLIC SDL2::SDL2main
+            PUBLIC SDL2::SDL2
+        )
+        target_include_directories(${PROJECT_NAME} INTERFACE ${SDL2_INCLUDE_DIRS})
 
-# target_link_options(${PROJECT_NAME} PRIVATE "-Wl,-rpath=${TOTAL_OUTPUT_DIRECTORY}") #添加执行调试的 静态动态库路径
+        file(GLOB_RECURSE SDL2_DLL  "${SDL2_DLL_SEARCH_PATH}/SDL2.dll")# 搜寻可执行文件依赖的dll
+        file(MAKE_DIRECTORY "${SDL2_DLL_DESTINATION}")# 创建目标可执行文件所在的目录
+        add_custom_command( TARGET ${PROJECT_NAME} PRE_LINK # 链接前置任务,构建前生效; 当然也可以链接构建生成目标后再复制改为 POST_BUILD即可
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                    "${SDL2_DLL}"
+                    "${SDL2_DLL_DESTINATION}"
+            COMMENT "copy ${SDL2_DLL} to ${SDL2_DLL_DESTINATION}"
+        )
 
+        message("---------message---------")
+        message(" 找到了SDL2这个库 SDL2 found")
+        message(" SDL2这个库包的路径SDL2_INCLUDE_DIR有: ${SDL2_INCLUDE_DIRS}")
+        message(" 找寻 SDL2_DLL在目录${SDL2_DLL_SEARCH_PATH}")
+        message(" SDL2_DLL路径为:${SDL2_DLL} ")
+        message(" SDL2这个库有这些库目标:SDL2_LIBRARY: ${SDL2_LIBRARIES}")
+        message(" 复制这个SDL2_DLL到:${SDL2_DLL_DESTINATION}, 也就是生成可执行文件的目录")
+        message("---------message end---------")
 
-
-
+    else()
+        message(FATAL_ERROR "Could not find SDL2.")
+    endif()
+endif(WIN32)
 
  
 

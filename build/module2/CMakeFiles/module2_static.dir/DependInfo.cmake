@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "J:/workplace/cmake_cpp/module2/module2.cpp" "module2/CMakeFiles/module2_static.dir/module2.cpp.obj" "gcc" "module2/CMakeFiles/module2_static.dir/module2.cpp.obj.d"
+  "J:/studyplace/cmake_cpp/module2/module2.cpp" "module2/CMakeFiles/module2_static.dir/module2.cpp.obj" "gcc" "module2/CMakeFiles/module2_static.dir/module2.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

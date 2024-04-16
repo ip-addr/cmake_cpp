@@ -52,10 +52,10 @@ RM = "D:\Program Files\Cmake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = J:\workplace\cmake_cpp
+CMAKE_SOURCE_DIR = J:\studyplace\cmake_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = J:\workplace\cmake_cpp\build
+CMAKE_BINARY_DIR = J:\studyplace\cmake_cpp\build
 
 # Include any dependencies generated for this target.
 include module1/CMakeFiles/module1_shared.dir/depend.make
@@ -69,18 +69,18 @@ include module1/CMakeFiles/module1_shared.dir/progress.make
 include module1/CMakeFiles/module1_shared.dir/flags.make
 
 module1/CMakeFiles/module1_shared.dir/module1.cpp.obj: module1/CMakeFiles/module1_shared.dir/flags.make
-module1/CMakeFiles/module1_shared.dir/module1.cpp.obj: J:/workplace/cmake_cpp/module1/module1.cpp
+module1/CMakeFiles/module1_shared.dir/module1.cpp.obj: J:/studyplace/cmake_cpp/module1/module1.cpp
 module1/CMakeFiles/module1_shared.dir/module1.cpp.obj: module1/CMakeFiles/module1_shared.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object module1/CMakeFiles/module1_shared.dir/module1.cpp.obj"
-	cd /d J:\workplace\cmake_cpp\build\module1 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT module1/CMakeFiles/module1_shared.dir/module1.cpp.obj -MF CMakeFiles\module1_shared.dir\module1.cpp.obj.d -o CMakeFiles\module1_shared.dir\module1.cpp.obj -c J:\workplace\cmake_cpp\module1\module1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object module1/CMakeFiles/module1_shared.dir/module1.cpp.obj"
+	cd /d J:\studyplace\cmake_cpp\build\module1 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT module1/CMakeFiles/module1_shared.dir/module1.cpp.obj -MF CMakeFiles\module1_shared.dir\module1.cpp.obj.d -o CMakeFiles\module1_shared.dir\module1.cpp.obj -c J:\studyplace\cmake_cpp\module1\module1.cpp
 
 module1/CMakeFiles/module1_shared.dir/module1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/module1_shared.dir/module1.cpp.i"
-	cd /d J:\workplace\cmake_cpp\build\module1 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\workplace\cmake_cpp\module1\module1.cpp > CMakeFiles\module1_shared.dir\module1.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build\module1 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E J:\studyplace\cmake_cpp\module1\module1.cpp > CMakeFiles\module1_shared.dir\module1.cpp.i
 
 module1/CMakeFiles/module1_shared.dir/module1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/module1_shared.dir/module1.cpp.s"
-	cd /d J:\workplace\cmake_cpp\build\module1 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\workplace\cmake_cpp\module1\module1.cpp -o CMakeFiles\module1_shared.dir\module1.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build\module1 && D:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S J:\studyplace\cmake_cpp\module1\module1.cpp -o CMakeFiles\module1_shared.dir\module1.cpp.s
 
 # Object files for target module1_shared
 module1_shared_OBJECTS = \
@@ -89,23 +89,23 @@ module1_shared_OBJECTS = \
 # External object files for target module1_shared
 module1_shared_EXTERNAL_OBJECTS =
 
-J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/module1.cpp.obj
-J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/build.make
-J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/linkLibs.rsp
-J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/objects1.rsp
-J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library J:\workplace\cmake_cpp\Debug\bin\libmodule1_shared_rename.dll"
-	cd /d J:\workplace\cmake_cpp\build\module1 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\module1_shared.dir\link.txt --verbose=$(VERBOSE)
+Debug/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/module1.cpp.obj
+Debug/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/build.make
+Debug/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/linkLibs.rsp
+Debug/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/objects1.rsp
+Debug/libmodule1_shared_rename.dll: module1/CMakeFiles/module1_shared.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library ..\Debug\libmodule1_shared_rename.dll"
+	cd /d J:\studyplace\cmake_cpp\build\module1 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\module1_shared.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-module1/CMakeFiles/module1_shared.dir/build: J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll
+module1/CMakeFiles/module1_shared.dir/build: Debug/libmodule1_shared_rename.dll
 .PHONY : module1/CMakeFiles/module1_shared.dir/build
 
 module1/CMakeFiles/module1_shared.dir/clean:
-	cd /d J:\workplace\cmake_cpp\build\module1 && $(CMAKE_COMMAND) -P CMakeFiles\module1_shared.dir\cmake_clean.cmake
+	cd /d J:\studyplace\cmake_cpp\build\module1 && $(CMAKE_COMMAND) -P CMakeFiles\module1_shared.dir\cmake_clean.cmake
 .PHONY : module1/CMakeFiles/module1_shared.dir/clean
 
 module1/CMakeFiles/module1_shared.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" J:\workplace\cmake_cpp J:\workplace\cmake_cpp\module1 J:\workplace\cmake_cpp\build J:\workplace\cmake_cpp\build\module1 J:\workplace\cmake_cpp\build\module1\CMakeFiles\module1_shared.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" J:\studyplace\cmake_cpp J:\studyplace\cmake_cpp\module1 J:\studyplace\cmake_cpp\build J:\studyplace\cmake_cpp\build\module1 J:\studyplace\cmake_cpp\build\module1\CMakeFiles\module1_shared.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : module1/CMakeFiles/module1_shared.dir/depend
 

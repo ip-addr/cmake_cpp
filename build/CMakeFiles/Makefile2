@@ -53,10 +53,10 @@ RM = "D:\Program Files\Cmake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = J:\workplace\cmake_cpp
+CMAKE_SOURCE_DIR = J:\studyplace\cmake_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = J:\workplace\cmake_cpp\build
+CMAKE_BINARY_DIR = J:\studyplace\cmake_cpp\build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -149,14 +149,14 @@ practice/clean: practice/CMakeFiles/practice_main.dir/clean
 module1/CMakeFiles/module1_shared.dir/all:
 	$(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/depend
 	$(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=1,2 "Built target module1_shared"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=1,2 "Built target module1_shared"
 .PHONY : module1/CMakeFiles/module1_shared.dir/all
 
 # Build rule for subdir invocation for target.
 module1/CMakeFiles/module1_shared.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/CMakeFiles/module1_shared.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
 .PHONY : module1/CMakeFiles/module1_shared.dir/rule
 
 # Convenience name for target.
@@ -175,14 +175,14 @@ module1/CMakeFiles/module1_shared.dir/clean:
 module2/CMakeFiles/module2_static.dir/all:
 	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/depend
 	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=3,4 "Built target module2_static"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=3,4 "Built target module2_static"
 .PHONY : module2/CMakeFiles/module2_static.dir/all
 
 # Build rule for subdir invocation for target.
 module2/CMakeFiles/module2_static.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module2/CMakeFiles/module2_static.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
 .PHONY : module2/CMakeFiles/module2_static.dir/rule
 
 # Convenience name for target.
@@ -202,14 +202,14 @@ practice/CMakeFiles/practice_main.dir/all: module1/CMakeFiles/module1_shared.dir
 practice/CMakeFiles/practice_main.dir/all: module2/CMakeFiles/module2_static.dir/all
 	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=7,8,9,10 "Built target practice_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=7,8,9,10 "Built target practice_main"
 .PHONY : practice/CMakeFiles/practice_main.dir/all
 
 # Build rule for subdir invocation for target.
 practice/CMakeFiles/practice_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/CMakeFiles/practice_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
 .PHONY : practice/CMakeFiles/practice_main.dir/rule
 
 # Convenience name for target.
@@ -228,14 +228,14 @@ practice/CMakeFiles/practice_main.dir/clean:
 module3/CMakeFiles/module3_static.dir/all:
 	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/depend
 	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\workplace\cmake_cpp\build\CMakeFiles --progress-num=5,6 "Built target module3_static"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=5,6 "Built target module3_static"
 .PHONY : module3/CMakeFiles/module3_static.dir/all
 
 # Build rule for subdir invocation for target.
 module3/CMakeFiles/module3_static.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module3/CMakeFiles/module3_static.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
 .PHONY : module3/CMakeFiles/module3_static.dir/rule
 
 # Convenience name for target.

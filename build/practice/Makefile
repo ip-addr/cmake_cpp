@@ -56,10 +56,10 @@ RM = "D:\Program Files\Cmake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = J:\workplace\cmake_cpp
+CMAKE_SOURCE_DIR = J:\studyplace\cmake_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = J:\workplace\cmake_cpp\build
+CMAKE_BINARY_DIR = J:\studyplace\cmake_cpp\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -84,61 +84,16 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	"D:\Program Files\Cmake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /d J:\workplace\cmake_cpp\build && $(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles J:\workplace\cmake_cpp\build\practice\\CMakeFiles\progress.marks
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/all
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\workplace\cmake_cpp\build\CMakeFiles 0
+	cd /d J:\studyplace\cmake_cpp\build && $(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles J:\studyplace\cmake_cpp\build\practice\\CMakeFiles\progress.marks
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/all
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/clean
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/clean
 .PHONY : clean
 
 # The main clean target
@@ -147,22 +102,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/preinstall
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/preinstall
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d J:\workplace\cmake_cpp\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d J:\studyplace\cmake_cpp\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 practice/CMakeFiles/practice_main.dir/rule:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/CMakeFiles/practice_main.dir/rule
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/CMakeFiles/practice_main.dir/rule
 .PHONY : practice/CMakeFiles/practice_main.dir/rule
 
 # Convenience name for target.
@@ -171,7 +126,7 @@ practice_main: practice/CMakeFiles/practice_main.dir/rule
 
 # fast build rule for target.
 practice_main/fast:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/build
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/build
 .PHONY : practice_main/fast
 
 src/fun1.obj: src/fun1.cpp.obj
@@ -179,7 +134,7 @@ src/fun1.obj: src/fun1.cpp.obj
 
 # target to build an object file
 src/fun1.cpp.obj:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun1.cpp.obj
 .PHONY : src/fun1.cpp.obj
 
 src/fun1.i: src/fun1.cpp.i
@@ -187,7 +142,7 @@ src/fun1.i: src/fun1.cpp.i
 
 # target to preprocess a source file
 src/fun1.cpp.i:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun1.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun1.cpp.i
 .PHONY : src/fun1.cpp.i
 
 src/fun1.s: src/fun1.cpp.s
@@ -195,7 +150,7 @@ src/fun1.s: src/fun1.cpp.s
 
 # target to generate assembly for a file
 src/fun1.cpp.s:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun1.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun1.cpp.s
 .PHONY : src/fun1.cpp.s
 
 src/fun2.obj: src/fun2.cpp.obj
@@ -203,7 +158,7 @@ src/fun2.obj: src/fun2.cpp.obj
 
 # target to build an object file
 src/fun2.cpp.obj:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun2.cpp.obj
 .PHONY : src/fun2.cpp.obj
 
 src/fun2.i: src/fun2.cpp.i
@@ -211,7 +166,7 @@ src/fun2.i: src/fun2.cpp.i
 
 # target to preprocess a source file
 src/fun2.cpp.i:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun2.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun2.cpp.i
 .PHONY : src/fun2.cpp.i
 
 src/fun2.s: src/fun2.cpp.s
@@ -219,7 +174,7 @@ src/fun2.s: src/fun2.cpp.s
 
 # target to generate assembly for a file
 src/fun2.cpp.s:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun2.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/fun2.cpp.s
 .PHONY : src/fun2.cpp.s
 
 src/main.obj: src/main.cpp.obj
@@ -227,7 +182,7 @@ src/main.obj: src/main.cpp.obj
 
 # target to build an object file
 src/main.cpp.obj:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/main.cpp.obj
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/main.cpp.obj
 .PHONY : src/main.cpp.obj
 
 src/main.i: src/main.cpp.i
@@ -235,7 +190,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/main.cpp.i
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -243,7 +198,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /d J:\workplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/main.cpp.s
+	cd /d J:\studyplace\cmake_cpp\build && $(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -253,10 +208,6 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
-	@echo ... install
-	@echo ... install/local
-	@echo ... install/strip
-	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... practice_main
 	@echo ... src/fun1.obj
@@ -279,6 +230,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d J:\workplace\cmake_cpp\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d J:\studyplace\cmake_cpp\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

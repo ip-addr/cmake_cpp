@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
+  "../Debug/libmodule1_shared_rename.dll"
+  "../Debug/libmodule1_shared_rename.dll.a"
+  "../Debug/libmodule1_shared_rename.dll.manifest"
+  "../Debug/libmodule1_shared_rename.pdb"
   "CMakeFiles/module1_shared.dir/module1.cpp.obj"
   "CMakeFiles/module1_shared.dir/module1.cpp.obj.d"
-  "J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll"
-  "J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll.a"
-  "J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.dll.manifest"
-  "J:/workplace/cmake_cpp/Debug/bin/libmodule1_shared_rename.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
