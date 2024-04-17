@@ -125,7 +125,7 @@ module1_shared: cmake_check_build_system
 
 # fast build rule for target.
 module1_shared/fast:
-	$(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/build
+	$(MAKE) $(MAKESILENT) -f myUtils\module1\CMakeFiles\module1_shared.dir\build.make myUtils/module1/CMakeFiles/module1_shared.dir/build
 .PHONY : module1_shared/fast
 
 #=============================================================================
@@ -138,34 +138,34 @@ module2_static: cmake_check_build_system
 
 # fast build rule for target.
 module2_static/fast:
-	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/build
+	$(MAKE) $(MAKESILENT) -f myUtils\module2\CMakeFiles\module2_static.dir\build.make myUtils/module2/CMakeFiles/module2_static.dir/build
 .PHONY : module2_static/fast
 
 #=============================================================================
-# Target rules for targets named practice_main
+# Target rules for targets named prj_SDL2
 
 # Build rule for target.
-practice_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice_main
-.PHONY : practice_main
+prj_SDL2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 prj_SDL2
+.PHONY : prj_SDL2
 
 # fast build rule for target.
-practice_main/fast:
-	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/build
-.PHONY : practice_main/fast
+prj_SDL2/fast:
+	$(MAKE) $(MAKESILENT) -f project\prj_SDL2\CMakeFiles\prj_SDL2.dir\build.make project/prj_SDL2/CMakeFiles/prj_SDL2.dir/build
+.PHONY : prj_SDL2/fast
 
 #=============================================================================
-# Target rules for targets named module3_static
+# Target rules for targets named prj_my_test
 
 # Build rule for target.
-module3_static: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module3_static
-.PHONY : module3_static
+prj_my_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 prj_my_test
+.PHONY : prj_my_test
 
 # fast build rule for target.
-module3_static/fast:
-	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/build
-.PHONY : module3_static/fast
+prj_my_test/fast:
+	$(MAKE) $(MAKESILENT) -f project\prj_my_test\CMakeFiles\prj_my_test.dir\build.make project/prj_my_test/CMakeFiles/prj_my_test.dir/build
+.PHONY : prj_my_test/fast
 
 # Help Target
 help:
@@ -177,8 +177,8 @@ help:
 	@echo ... rebuild_cache
 	@echo ... module1_shared
 	@echo ... module2_static
-	@echo ... module3_static
-	@echo ... practice_main
+	@echo ... prj_SDL2
+	@echo ... prj_my_test
 .PHONY : help
 
 

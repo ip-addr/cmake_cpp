@@ -1,5 +1,7 @@
+# 自定义函数, 实现一些复杂的定制功能
 
-## 查找该目录下所有头文件所在的目录,并返回头文件列表
+
+## 查找该目录下所有头文件所在的目录,并返回头文件路径列表
 function(find_header_directories PARENT_DIRECTORY HEADER_DIRECTORIES_OUT)
     set(HEADER_DIRECTORIES "")
     
@@ -22,7 +24,6 @@ function(find_header_directories PARENT_DIRECTORY HEADER_DIRECTORIES_OUT)
     set(${HEADER_DIRECTORIES_OUT} ${HEADER_DIRECTORIES} PARENT_SCOPE)
     # set(${HEADER_DIRECTORIES_OUT} ${HEADER_DIRECTORIES}  )
     # 将结果赋值给OUT_HEAR_DIRS参数，供父级CMake脚本使用 
-    # 必要的,不然这些变量只作用于函数内部,或者被其他重名变量覆盖
-    
+    # PARENT_SCOPE是必要的,不然这些变量只作用于函数内部,或者被其他重名变量覆盖
 endfunction()
  

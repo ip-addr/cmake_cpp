@@ -1,2 +1,0 @@
-D:\mingw64\bin\ar.exe qc ..\Debug\libmodule2_static_rename.a CMakeFiles/module2_static.dir/module2.cpp.obj
-D:\mingw64\bin\ranlib.exe ..\Debug\libmodule2_static_rename.a

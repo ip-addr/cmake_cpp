@@ -4,15 +4,14 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "gdb Launch",
+        {//调试prj_my_test.exe
+            "name": "调试prj_my_test.exe Launch模式",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/practice_main.exe",
+            "program": "${workspaceFolder}/build/Debug/prj_my_test.exe",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
-            // "additionalSOLibSearchPath": "${workspaceFolder}\\Debug\\libs",
             "environment": [
                 {
                     "name": "PATH",
@@ -35,9 +34,41 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "前置构建任务:Pre Build Task",
-
+            "preLaunchTask": "前置构建任务:调试前先构建编译",
+        },
+        { //调试prj_SDL2.exe
+            "name": "调试prj_SDL2.exe Launch模式,话说调试UI项目好卡的样子",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Debug/prj_SDL2.exe",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "${env:PATH};${workspaceFolder}/build;${workspaceFolder}/build/Debug"
+                },
+            ],
+            
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb使能GDB整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "前置构建任务:调试前先构建编译",
         }
-
     ]
 }
+
+// "additionalSOLibSearchPath": "${workspaceFolder}\\Debug\\libs",

@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title></title>
+            <title>&#x4f7f;&#x7528;cmake&plus;MinGW&#x6784;&#x5efa;c&#x9879;&#x76ee;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -2943,12 +2943,119 @@ body,
             <div class="github-markdown-content"><span id="markdown-mermaid" aria-hidden="true"
                     data-dark-mode-theme="dark"
                     data-light-mode-theme="default"></span>
-                <blockquote>
-<p><a href="https://github.com/ttroy50/cmake-examples/tree/master/01-basic">cmake-examples参考示例</a></p>
-<ul>
-<li><a href="https://github.com/ttroy50/cmake-examples/tree/master/01-basic">https://github.com/ttroy50/cmake-examples/tree/master/01-basic</a></li>
+                <ul>
+<li>这个简单的项目,学习参考的:<a href="https://github.com/ttroy50/cmake-examples/tree/master">cmake-examples</a>这个项目教程.</li>
 </ul>
+<h1 id="%E4%BD%BF%E7%94%A8cmakemingw%E6%9E%84%E5%BB%BAc%E9%A1%B9%E7%9B%AE">使用cmake+MinGW构建c项目</h1>
+<h2 id="%E5%B0%86%E9%A1%B9%E7%9B%AE%E8%B7%91%E8%B5%B7%E6%9D%A5">将项目跑起来</h2>
+<ul>
+<li>vscode安装必要的debug插件,并安装好MinGW,并安装好cmake</li>
+<li>按下<code>F5</code>即可</li>
+<li>可选择安装vsocde的cmake tools插件,可视化操作</li>
+</ul>
+<h2 id="%E5%B7%A5%E5%85%B7%E9%93%BE%E8%AF%B4%E6%98%8E">工具链说明:</h2>
+<ul>
+<li>编译链接器：MinGW   x86_64-w64-mingw32</li>
+<li>构建工具:   cmake &gt;3.5.0</li>
+<li>构建平台:   windows10/11 x86_x64</li>
+<li>辅助工具:   vscode, cmake-tools</li>
+</ul>
+<h2 id="%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">项目目录结构:</h2>
+<pre><code class="language-cmake">|-- CMakeLists.txt
+|-- README.html
+|-- README.md
+|-- build
+|   |-- CMakeCache.txt
+|   |-- CMakeFiles
+|   |-- Debug
+|   |-- Makefile
+|   |-- cmake_install.cmake
+|   |-- compile_commands.json
+|   |-- myUtils
+|   `-- <span class="hljs-keyword">project</span>
+|-- myUtils
+|   |-- CMakeLists.txt
+|   |-- module1
+|   |-- module2
+|   `-- module3
+|-- <span class="hljs-keyword">project</span>
+|   |-- CMakeLists.txt
+|   |-- prj_SDL2
+|   `-- prj_my_test
+`-- thirdpart
+    `-- SDL2-devel-<span class="hljs-number">2.28</span>.<span class="hljs-number">2</span>-mingw
+</code></pre>
+<h2 id="%E9%A1%B9%E7%9B%AE%E6%84%8F%E5%9B%BE">项目意图</h2>
+<ul>
+<li>
+<p>project</p>
+<ul>
+<li>所有子项目均放置在此</li>
+<li>pri_my_test 日常写一些刷题代码项目</li>
+<li>prj_SDL2    导入第三方库测试项目</li>
+</ul>
+</li>
+<li>
+<p>thirdParty</p>
+<ul>
+<li>所有第三方库均放置在此</li>
+<li>SDL2-devel-2.28.2-mingw</li>
+</ul>
+</li>
+<li>
+<p>myUtils</p>
+<ul>
+<li>所有可复用的模块均放置在此</li>
+<li>module1</li>
+<li>module2</li>
+</ul>
+</li>
+<li>
+<p>.cmake</p>
+<ul>
+<li>存放一些自己写的,可复用的cmake函数, 暂没用</li>
+<li>myfunc.cmake</li>
+</ul>
+</li>
+<li>
+<p>build</p>
+<ul>
+<li>所有构建生成的文件,cmake的构建目录</li>
+</ul>
+</li>
+<li>
+<p>项目的构建全部依靠CMakeLists.txt管理</p>
+</li>
+<li>
+<p>采用树状目录 管理cmake构建流程,理清构建流程</p>
+</li>
+</ul>
+<h2 id="%E5%85%B1%E4%B8%A4%E4%B8%AA%E5%AD%90%E9%A1%B9%E7%9B%AE">共两个子项目</h2>
+<ol>
+<li>pri_my_test</li>
+</ol>
+<blockquote>
+<p>pri_my_test 依赖包含</p>
+<blockquote>
+<p>module1 动态库模块
+module2 静态库模块</p>
 </blockquote>
+</blockquote>
+<ol start="2">
+<li>pri_SDL2</li>
+</ol>
+<blockquote>
+<p>pri_SDL2 依赖包含</p>
+<blockquote>
+<p>SDL2 第三方库</p>
+</blockquote>
+</blockquote>
+<h2 id="%E5%80%BC%E5%BE%97%E6%B3%A8%E6%84%8F%E7%9A%84%E6%98%AF">值得注意的是:</h2>
+<ol>
+<li>这里统一将 构建生成的,项目依赖的<code>共享库/动态库dll</code>以及<code>可执行文件exe</code>,或复制,或生成在 <code>/build/Debug/</code>目录下.</li>
+<li>这个项目 只涉及到 <code>find_package</code>导入其他库, 不涉及到如何打包自己的库并安装.(待学习)</li>
+<li><code>.so/.dll</code> 动态库, 又名<code>共享库</code>,体积小,运行时共享一块内存,故而速度更快. --但缺点是,如果程序运行时,需要用到的库没有加载,就会报错,且无法动态加载.==因此,必须将<code>动态库</code>添加到环境变量,或是复制到<code>可执行文件同级目录</code>下, <code>相应的exe</code>才能运行.==</li>
+</ol>
 </div>
         </div>
             

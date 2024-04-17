@@ -241,6 +241,15 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Value Computed by CMake
+Project_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build
+
+//Value Computed by CMake
+Project_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Project_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp
+
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=J:/studyplace/cmake_cpp/thirdpart/SDL2-devel-2.28.2-mingw/SDL2-2.28.2/cmake
 
@@ -254,40 +263,76 @@ Super_Project_IS_TOP_LEVEL:STATIC=ON
 Super_Project_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp
 
 //Value Computed by CMake
-module1_shared_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/module1
+module1_shared_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/myUtils/module1
 
 //Value Computed by CMake
 module1_shared_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-module1_shared_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/module1
+module1_shared_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/myUtils/module1
 
 //Value Computed by CMake
-module2_static_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/module2
+module2_static_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/myUtils/module2
 
 //Value Computed by CMake
 module2_static_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-module2_static_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/module2
+module2_static_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/myUtils/module2
 
 //Value Computed by CMake
-module3_static_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/module3
+module3_static_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/myUtils/module3
 
 //Value Computed by CMake
 module3_static_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-module3_static_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/module3
+module3_static_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/myUtils/module3
 
 //Value Computed by CMake
-practice_main_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/practice
+myUtils_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/myUtils
 
 //Value Computed by CMake
-practice_main_IS_TOP_LEVEL:STATIC=OFF
+myUtils_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-practice_main_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/practice
+myUtils_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/myUtils
+
+//Value Computed by CMake
+my_test_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/project/prj_my_test
+
+//Value Computed by CMake
+my_test_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+my_test_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/project/prj_my_test
+
+//Value Computed by CMake
+prj_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/project
+
+//Value Computed by CMake
+prj_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+prj_SDL2_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/project/prj_SDL2
+
+//Value Computed by CMake
+prj_SDL2_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+prj_SDL2_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/project/prj_SDL2
+
+//Value Computed by CMake
+prj_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/project
+
+//Value Computed by CMake
+prj_my_test_BINARY_DIR:STATIC=J:/studyplace/cmake_cpp/build/project/prj_my_test
+
+//Value Computed by CMake
+prj_my_test_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+prj_my_test_SOURCE_DIR:STATIC=J:/studyplace/cmake_cpp/project/prj_my_test
 
 
 ########################
@@ -396,7 +441,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

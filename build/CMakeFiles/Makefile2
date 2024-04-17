@@ -62,190 +62,220 @@ CMAKE_BINARY_DIR = J:\studyplace\cmake_cpp\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: module1/all
-all: module2/all
-all: practice/all
-all: module3/all
+all: myUtils/all
+all: project/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: module1/preinstall
-preinstall: module2/preinstall
-preinstall: practice/preinstall
-preinstall: module3/preinstall
+preinstall: myUtils/preinstall
+preinstall: project/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: module1/clean
-clean: module2/clean
-clean: practice/clean
-clean: module3/clean
+clean: myUtils/clean
+clean: project/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory module1
+# Directory level rules for directory myUtils
 
 # Recursive "all" directory target.
-module1/all: module1/CMakeFiles/module1_shared.dir/all
-.PHONY : module1/all
+myUtils/all: myUtils/module1/all
+myUtils/all: myUtils/module2/all
+.PHONY : myUtils/all
 
 # Recursive "preinstall" directory target.
-module1/preinstall:
-.PHONY : module1/preinstall
+myUtils/preinstall: myUtils/module1/preinstall
+myUtils/preinstall: myUtils/module2/preinstall
+.PHONY : myUtils/preinstall
 
 # Recursive "clean" directory target.
-module1/clean: module1/CMakeFiles/module1_shared.dir/clean
-.PHONY : module1/clean
+myUtils/clean: myUtils/module1/clean
+myUtils/clean: myUtils/module2/clean
+.PHONY : myUtils/clean
 
 #=============================================================================
-# Directory level rules for directory module2
+# Directory level rules for directory myUtils/module1
 
 # Recursive "all" directory target.
-module2/all: module2/CMakeFiles/module2_static.dir/all
-.PHONY : module2/all
+myUtils/module1/all: myUtils/module1/CMakeFiles/module1_shared.dir/all
+.PHONY : myUtils/module1/all
 
 # Recursive "preinstall" directory target.
-module2/preinstall:
-.PHONY : module2/preinstall
+myUtils/module1/preinstall:
+.PHONY : myUtils/module1/preinstall
 
 # Recursive "clean" directory target.
-module2/clean: module2/CMakeFiles/module2_static.dir/clean
-.PHONY : module2/clean
+myUtils/module1/clean: myUtils/module1/CMakeFiles/module1_shared.dir/clean
+.PHONY : myUtils/module1/clean
 
 #=============================================================================
-# Directory level rules for directory module3
+# Directory level rules for directory myUtils/module2
 
 # Recursive "all" directory target.
-module3/all: module3/CMakeFiles/module3_static.dir/all
-.PHONY : module3/all
+myUtils/module2/all: myUtils/module2/CMakeFiles/module2_static.dir/all
+.PHONY : myUtils/module2/all
 
 # Recursive "preinstall" directory target.
-module3/preinstall:
-.PHONY : module3/preinstall
+myUtils/module2/preinstall:
+.PHONY : myUtils/module2/preinstall
 
 # Recursive "clean" directory target.
-module3/clean: module3/CMakeFiles/module3_static.dir/clean
-.PHONY : module3/clean
+myUtils/module2/clean: myUtils/module2/CMakeFiles/module2_static.dir/clean
+.PHONY : myUtils/module2/clean
 
 #=============================================================================
-# Directory level rules for directory practice
+# Directory level rules for directory project
 
 # Recursive "all" directory target.
-practice/all: practice/CMakeFiles/practice_main.dir/all
-.PHONY : practice/all
+project/all: project/prj_SDL2/all
+project/all: project/prj_my_test/all
+.PHONY : project/all
 
 # Recursive "preinstall" directory target.
-practice/preinstall:
-.PHONY : practice/preinstall
+project/preinstall: project/prj_SDL2/preinstall
+project/preinstall: project/prj_my_test/preinstall
+.PHONY : project/preinstall
 
 # Recursive "clean" directory target.
-practice/clean: practice/CMakeFiles/practice_main.dir/clean
-.PHONY : practice/clean
+project/clean: project/prj_SDL2/clean
+project/clean: project/prj_my_test/clean
+.PHONY : project/clean
 
 #=============================================================================
-# Target rules for target module1/CMakeFiles/module1_shared.dir
+# Directory level rules for directory project/prj_SDL2
+
+# Recursive "all" directory target.
+project/prj_SDL2/all: project/prj_SDL2/CMakeFiles/prj_SDL2.dir/all
+.PHONY : project/prj_SDL2/all
+
+# Recursive "preinstall" directory target.
+project/prj_SDL2/preinstall:
+.PHONY : project/prj_SDL2/preinstall
+
+# Recursive "clean" directory target.
+project/prj_SDL2/clean: project/prj_SDL2/CMakeFiles/prj_SDL2.dir/clean
+.PHONY : project/prj_SDL2/clean
+
+#=============================================================================
+# Directory level rules for directory project/prj_my_test
+
+# Recursive "all" directory target.
+project/prj_my_test/all: project/prj_my_test/CMakeFiles/prj_my_test.dir/all
+.PHONY : project/prj_my_test/all
+
+# Recursive "preinstall" directory target.
+project/prj_my_test/preinstall:
+.PHONY : project/prj_my_test/preinstall
+
+# Recursive "clean" directory target.
+project/prj_my_test/clean: project/prj_my_test/CMakeFiles/prj_my_test.dir/clean
+.PHONY : project/prj_my_test/clean
+
+#=============================================================================
+# Target rules for target myUtils/module1/CMakeFiles/module1_shared.dir
 
 # All Build rule for target.
-module1/CMakeFiles/module1_shared.dir/all:
-	$(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/depend
-	$(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/build
+myUtils/module1/CMakeFiles/module1_shared.dir/all:
+	$(MAKE) $(MAKESILENT) -f myUtils\module1\CMakeFiles\module1_shared.dir\build.make myUtils/module1/CMakeFiles/module1_shared.dir/depend
+	$(MAKE) $(MAKESILENT) -f myUtils\module1\CMakeFiles\module1_shared.dir\build.make myUtils/module1/CMakeFiles/module1_shared.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=1,2 "Built target module1_shared"
-.PHONY : module1/CMakeFiles/module1_shared.dir/all
+.PHONY : myUtils/module1/CMakeFiles/module1_shared.dir/all
 
 # Build rule for subdir invocation for target.
-module1/CMakeFiles/module1_shared.dir/rule: cmake_check_build_system
+myUtils/module1/CMakeFiles/module1_shared.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module1/CMakeFiles/module1_shared.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 myUtils/module1/CMakeFiles/module1_shared.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
-.PHONY : module1/CMakeFiles/module1_shared.dir/rule
+.PHONY : myUtils/module1/CMakeFiles/module1_shared.dir/rule
 
 # Convenience name for target.
-module1_shared: module1/CMakeFiles/module1_shared.dir/rule
+module1_shared: myUtils/module1/CMakeFiles/module1_shared.dir/rule
 .PHONY : module1_shared
 
 # clean rule for target.
-module1/CMakeFiles/module1_shared.dir/clean:
-	$(MAKE) $(MAKESILENT) -f module1\CMakeFiles\module1_shared.dir\build.make module1/CMakeFiles/module1_shared.dir/clean
-.PHONY : module1/CMakeFiles/module1_shared.dir/clean
+myUtils/module1/CMakeFiles/module1_shared.dir/clean:
+	$(MAKE) $(MAKESILENT) -f myUtils\module1\CMakeFiles\module1_shared.dir\build.make myUtils/module1/CMakeFiles/module1_shared.dir/clean
+.PHONY : myUtils/module1/CMakeFiles/module1_shared.dir/clean
 
 #=============================================================================
-# Target rules for target module2/CMakeFiles/module2_static.dir
+# Target rules for target myUtils/module2/CMakeFiles/module2_static.dir
 
 # All Build rule for target.
-module2/CMakeFiles/module2_static.dir/all:
-	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/depend
-	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/build
+myUtils/module2/CMakeFiles/module2_static.dir/all:
+	$(MAKE) $(MAKESILENT) -f myUtils\module2\CMakeFiles\module2_static.dir\build.make myUtils/module2/CMakeFiles/module2_static.dir/depend
+	$(MAKE) $(MAKESILENT) -f myUtils\module2\CMakeFiles\module2_static.dir\build.make myUtils/module2/CMakeFiles/module2_static.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=3,4 "Built target module2_static"
-.PHONY : module2/CMakeFiles/module2_static.dir/all
+.PHONY : myUtils/module2/CMakeFiles/module2_static.dir/all
 
 # Build rule for subdir invocation for target.
-module2/CMakeFiles/module2_static.dir/rule: cmake_check_build_system
+myUtils/module2/CMakeFiles/module2_static.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module2/CMakeFiles/module2_static.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 myUtils/module2/CMakeFiles/module2_static.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
-.PHONY : module2/CMakeFiles/module2_static.dir/rule
+.PHONY : myUtils/module2/CMakeFiles/module2_static.dir/rule
 
 # Convenience name for target.
-module2_static: module2/CMakeFiles/module2_static.dir/rule
+module2_static: myUtils/module2/CMakeFiles/module2_static.dir/rule
 .PHONY : module2_static
 
 # clean rule for target.
-module2/CMakeFiles/module2_static.dir/clean:
-	$(MAKE) $(MAKESILENT) -f module2\CMakeFiles\module2_static.dir\build.make module2/CMakeFiles/module2_static.dir/clean
-.PHONY : module2/CMakeFiles/module2_static.dir/clean
+myUtils/module2/CMakeFiles/module2_static.dir/clean:
+	$(MAKE) $(MAKESILENT) -f myUtils\module2\CMakeFiles\module2_static.dir\build.make myUtils/module2/CMakeFiles/module2_static.dir/clean
+.PHONY : myUtils/module2/CMakeFiles/module2_static.dir/clean
 
 #=============================================================================
-# Target rules for target practice/CMakeFiles/practice_main.dir
+# Target rules for target project/prj_SDL2/CMakeFiles/prj_SDL2.dir
 
 # All Build rule for target.
-practice/CMakeFiles/practice_main.dir/all: module1/CMakeFiles/module1_shared.dir/all
-practice/CMakeFiles/practice_main.dir/all: module2/CMakeFiles/module2_static.dir/all
-	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/depend
-	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=7,8,9,10 "Built target practice_main"
-.PHONY : practice/CMakeFiles/practice_main.dir/all
+project/prj_SDL2/CMakeFiles/prj_SDL2.dir/all:
+	$(MAKE) $(MAKESILENT) -f project\prj_SDL2\CMakeFiles\prj_SDL2.dir\build.make project/prj_SDL2/CMakeFiles/prj_SDL2.dir/depend
+	$(MAKE) $(MAKESILENT) -f project\prj_SDL2\CMakeFiles\prj_SDL2.dir\build.make project/prj_SDL2/CMakeFiles/prj_SDL2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=5,6,7,8 "Built target prj_SDL2"
+.PHONY : project/prj_SDL2/CMakeFiles/prj_SDL2.dir/all
 
 # Build rule for subdir invocation for target.
-practice/CMakeFiles/practice_main.dir/rule: cmake_check_build_system
+project/prj_SDL2/CMakeFiles/prj_SDL2.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/prj_SDL2/CMakeFiles/prj_SDL2.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
+.PHONY : project/prj_SDL2/CMakeFiles/prj_SDL2.dir/rule
+
+# Convenience name for target.
+prj_SDL2: project/prj_SDL2/CMakeFiles/prj_SDL2.dir/rule
+.PHONY : prj_SDL2
+
+# clean rule for target.
+project/prj_SDL2/CMakeFiles/prj_SDL2.dir/clean:
+	$(MAKE) $(MAKESILENT) -f project\prj_SDL2\CMakeFiles\prj_SDL2.dir\build.make project/prj_SDL2/CMakeFiles/prj_SDL2.dir/clean
+.PHONY : project/prj_SDL2/CMakeFiles/prj_SDL2.dir/clean
+
+#=============================================================================
+# Target rules for target project/prj_my_test/CMakeFiles/prj_my_test.dir
+
+# All Build rule for target.
+project/prj_my_test/CMakeFiles/prj_my_test.dir/all: myUtils/module1/CMakeFiles/module1_shared.dir/all
+project/prj_my_test/CMakeFiles/prj_my_test.dir/all: myUtils/module2/CMakeFiles/module2_static.dir/all
+	$(MAKE) $(MAKESILENT) -f project\prj_my_test\CMakeFiles\prj_my_test.dir\build.make project/prj_my_test/CMakeFiles/prj_my_test.dir/depend
+	$(MAKE) $(MAKESILENT) -f project\prj_my_test\CMakeFiles\prj_my_test.dir\build.make project/prj_my_test/CMakeFiles/prj_my_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=9,10,11,12 "Built target prj_my_test"
+.PHONY : project/prj_my_test/CMakeFiles/prj_my_test.dir/all
+
+# Build rule for subdir invocation for target.
+project/prj_my_test/CMakeFiles/prj_my_test.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 practice/CMakeFiles/practice_main.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project/prj_my_test/CMakeFiles/prj_my_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
-.PHONY : practice/CMakeFiles/practice_main.dir/rule
+.PHONY : project/prj_my_test/CMakeFiles/prj_my_test.dir/rule
 
 # Convenience name for target.
-practice_main: practice/CMakeFiles/practice_main.dir/rule
-.PHONY : practice_main
+prj_my_test: project/prj_my_test/CMakeFiles/prj_my_test.dir/rule
+.PHONY : prj_my_test
 
 # clean rule for target.
-practice/CMakeFiles/practice_main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f practice\CMakeFiles\practice_main.dir\build.make practice/CMakeFiles/practice_main.dir/clean
-.PHONY : practice/CMakeFiles/practice_main.dir/clean
-
-#=============================================================================
-# Target rules for target module3/CMakeFiles/module3_static.dir
-
-# All Build rule for target.
-module3/CMakeFiles/module3_static.dir/all:
-	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/depend
-	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=J:\studyplace\cmake_cpp\build\CMakeFiles --progress-num=5,6 "Built target module3_static"
-.PHONY : module3/CMakeFiles/module3_static.dir/all
-
-# Build rule for subdir invocation for target.
-module3/CMakeFiles/module3_static.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 module3/CMakeFiles/module3_static.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start J:\studyplace\cmake_cpp\build\CMakeFiles 0
-.PHONY : module3/CMakeFiles/module3_static.dir/rule
-
-# Convenience name for target.
-module3_static: module3/CMakeFiles/module3_static.dir/rule
-.PHONY : module3_static
-
-# clean rule for target.
-module3/CMakeFiles/module3_static.dir/clean:
-	$(MAKE) $(MAKESILENT) -f module3\CMakeFiles\module3_static.dir\build.make module3/CMakeFiles/module3_static.dir/clean
-.PHONY : module3/CMakeFiles/module3_static.dir/clean
+project/prj_my_test/CMakeFiles/prj_my_test.dir/clean:
+	$(MAKE) $(MAKESILENT) -f project\prj_my_test\CMakeFiles\prj_my_test.dir\build.make project/prj_my_test/CMakeFiles/prj_my_test.dir/clean
+.PHONY : project/prj_my_test/CMakeFiles/prj_my_test.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

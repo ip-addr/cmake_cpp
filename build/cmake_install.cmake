@@ -39,10 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("J:/studyplace/cmake_cpp/build/module1/cmake_install.cmake")
-  include("J:/studyplace/cmake_cpp/build/module2/cmake_install.cmake")
-  include("J:/studyplace/cmake_cpp/build/practice/cmake_install.cmake")
-  include("J:/studyplace/cmake_cpp/build/module3/cmake_install.cmake")
+  include("J:/studyplace/cmake_cpp/build/myUtils/cmake_install.cmake")
+  include("J:/studyplace/cmake_cpp/build/project/cmake_install.cmake")
 
 endif()
 

@@ -35,10 +35,12 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.0-rc1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.0-rc1/CMakeRCCompiler.cmake"
   "CMakeFiles/3.28.0-rc1/CMakeSystem.cmake"
-  "J:/studyplace/cmake_cpp/module1/CMakeLists.txt"
-  "J:/studyplace/cmake_cpp/module2/CMakeLists.txt"
-  "J:/studyplace/cmake_cpp/module3/CMakeLists.txt"
-  "J:/studyplace/cmake_cpp/practice/CMakeLists.txt"
+  "J:/studyplace/cmake_cpp/myUtils/CMakeLists.txt"
+  "J:/studyplace/cmake_cpp/myUtils/module1/CMakeLists.txt"
+  "J:/studyplace/cmake_cpp/myUtils/module2/CMakeLists.txt"
+  "J:/studyplace/cmake_cpp/project/CMakeLists.txt"
+  "J:/studyplace/cmake_cpp/project/prj_SDL2/CMakeLists.txt"
+  "J:/studyplace/cmake_cpp/project/prj_my_test/CMakeLists.txt"
   "J:/studyplace/cmake_cpp/thirdpart/SDL2-devel-2.28.2-mingw/SDL2-2.28.2/cmake/sdl2-config-version.cmake"
   "J:/studyplace/cmake_cpp/thirdpart/SDL2-devel-2.28.2-mingw/SDL2-2.28.2/cmake/sdl2-config.cmake"
   "J:/studyplace/cmake_cpp/thirdpart/SDL2-devel-2.28.2-mingw/SDL2-2.28.2/x86_64-w64-mingw32/lib/cmake/SDL2/sdl2-config-version.cmake"
@@ -54,16 +56,18 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "module1/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "module2/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "practice/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "module3/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "myUtils/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "myUtils/module1/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "myUtils/module2/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "project/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "project/prj_SDL2/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "project/prj_my_test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "module1/CMakeFiles/module1_shared.dir/DependInfo.cmake"
-  "module2/CMakeFiles/module2_static.dir/DependInfo.cmake"
-  "practice/CMakeFiles/practice_main.dir/DependInfo.cmake"
-  "module3/CMakeFiles/module3_static.dir/DependInfo.cmake"
+  "myUtils/module1/CMakeFiles/module1_shared.dir/DependInfo.cmake"
+  "myUtils/module2/CMakeFiles/module2_static.dir/DependInfo.cmake"
+  "project/prj_SDL2/CMakeFiles/prj_SDL2.dir/DependInfo.cmake"
+  "project/prj_my_test/CMakeFiles/prj_my_test.dir/DependInfo.cmake"
   )

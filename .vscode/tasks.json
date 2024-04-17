@@ -3,37 +3,48 @@
 	"tasks": [
         {
             "type": "shell",
-            "label": "CMake: build",
+            "label": "CMake: build 使用cmake生成makefile",
             "command": "cmake ../",
             "group": "build",
             "options": {
                 "cwd": "${workspaceFolder}/build"
             },
-            "problemMatcher": [],
+            // "problemMatcher": ["$gcc"],
         },
         {
             "type": "shell",
-            "label": "makefile: make",
+            "label": "makefile: make 使用makefile和make构建可执行文件或者库",
             "command": "mingw32-make.exe",
             "group": "build",
             "options": {
                 "cwd": "${workspaceFolder}/build"
             },
-            "problemMatcher": [],
+            // "problemMatcher": ["$gcc"],
         },
         {
             "type": "shell",
-            "label": "前置构建任务:Pre Build Task",
+            "label": "makefile: make clean 使用makefile和make清除",
+            "command": "mingw32-make.exe clean",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            // "problemMatcher": ["$gcc"],
+        },
+        {
+            "type": "shell",
+            "label": "前置构建任务:调试前先构建编译",
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": true  //标为 默认构建任务
             },
-            "problemMatcher": [],
-            "dependsOn": [
-                "CMake: build",
-                "makefile: make"
+            // "problemMatcher": ["$gcc"],
+            "dependsOn": [// make clean环节,嫌太慢;就注释掉
+                "CMake: build 使用cmake生成makefile",
+                "makefile: make clean 使用makefile和make清除",
+                "makefile: make 使用makefile和make构建可执行文件或者库",
             ],
-            "dependsOrder": "sequence",
+            "dependsOrder": "sequence",//按顺序依次执行 dependsOn列表任务
         },
     ],
 }

@@ -1,2 +1,0 @@
-J:/workplace/cmake_cpp/install/module3_static/lib/libmodule3_static_rename.a
-J:/workplace/cmake_cpp/install/module3_static/include/module3.h
