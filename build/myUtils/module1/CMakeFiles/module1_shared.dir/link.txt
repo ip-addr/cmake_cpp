@@ -1,3 +1,0 @@
-"D:\Program Files\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\module1_shared.dir/objects.a
-D:\mingw64\bin\ar.exe qc CMakeFiles\module1_shared.dir/objects.a @CMakeFiles\module1_shared.dir\objects1.rsp
-D:\mingw64\bin\g++.exe -g -shared -o ..\..\Debug\libmodule1_shared.dll -Wl,--out-implib,..\..\Debug\libmodule1_shared.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\module1_shared.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\module1_shared.dir\linkLibs.rsp

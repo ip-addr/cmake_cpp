@@ -1,3 +1,0 @@
-"D:\Program Files\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\prj_my_test.dir/objects.a
-D:\mingw64\bin\ar.exe qc CMakeFiles\prj_my_test.dir/objects.a @CMakeFiles\prj_my_test.dir\objects1.rsp
-D:\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\prj_my_test.dir/objects.a -Wl,--no-whole-archive -o ..\..\Debug\prj_my_test.exe -Wl,--out-implib,..\..\Debug\libprj_my_test.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\prj_my_test.dir\linkLibs.rsp
